@@ -1,5 +1,11 @@
 # Portfolio-2022
 
+## Work in progress...
+
+## Deployed:
+
+-   Deployed [on Netlify](https://gabriel-bondor-portfolio-2022.netlify.app/)
+
 ## Description:
 
 I'd like to create a new single page application portfolio project, using React.js and Material UI for the frontend, and serverless functions for the backend.
