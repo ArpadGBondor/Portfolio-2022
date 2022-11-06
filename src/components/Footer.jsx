@@ -1,8 +1,21 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 function Footer() {
-    return <Typography>Copyright © 2022 Árpád Gábor Bondor</Typography>;
+    return (
+        <Container
+            sx={{
+                position: 'absolute',
+                bottom: '0',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+            }}
+        >
+            <Typography>Copyright © 2022 Árpád Gábor Bondor</Typography>
+        </Container>
+    );
 }
 
 export default Footer;

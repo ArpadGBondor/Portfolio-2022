@@ -3,6 +3,8 @@ import Spinner from './Spinner';
 import { Box } from '@mui/material';
 import { usePagesContext } from '../context/pages/pagesContext';
 
+import Hero from './Hero';
+
 function Page({ page, pageId }) {
     const { loadPage } = usePagesContext();
     useEffect(() => {
@@ -14,10 +16,13 @@ function Page({ page, pageId }) {
     }, []);
     if (!page) return <Spinner />;
     return (
-        <Box sx={{ textAlign: 'center' }}>
-            <h1>{pageId}</h1>
-            <p>Work in progress...</p>
-        </Box>
+        <>
+            <Hero hero={page.hero} />
+            <Box sx={{ textAlign: 'center' }}>
+                <h1>{pageId}</h1>
+                <p>Work in progress...</p>
+            </Box>
+        </>
     );
 }
 
