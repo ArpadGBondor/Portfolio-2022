@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMediaQuery, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useThemeContext } from './context/theme/themeContext';
 

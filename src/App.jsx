@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -8,6 +7,7 @@ import ThemeState from './context/theme/ThemeState';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CustomToastContainer from './components/CustomToastContainer';
 import AppRouter from './AppRouter';
 import AppTheme from './AppTheme';
 
@@ -31,7 +31,7 @@ function App() {
                         >
                             <AppRouter />
                             <Footer />
-                            <ToastContainer />
+                            <CustomToastContainer />
                             {/* Place Navbar to the end, so it stays in front of the content  */}
                             <Navbar />
                         </Box>

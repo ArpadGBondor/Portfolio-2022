@@ -4,7 +4,7 @@
 
 ## Deployed:
 
--   Deployed [on Netlify](https://gabriel-bondor-portfolio-2022.netlify.app/)
+-   Deployed [on Netlify](https://gabriel-bondor.netlify.app/)
 
 ## Description:
 
