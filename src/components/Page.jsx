@@ -18,7 +18,7 @@ function Page({ page, pageId }) {
     return (
         <>
             <Hero hero={page.hero} />
-            <Box sx={{ textAlign: 'center' }}>
+            <Box sx={{ textAlign: 'center', margin: '3rem 0' }}>
                 <h1>{pageId}</h1>
                 <p>Work in progress...</p>
             </Box>
