@@ -1,37 +1,50 @@
-import { Container } from '@mui/material';
-import { Route, Routes } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
-
-import Home from './pages/Home';
-import CV from './pages/CV';
-import Introduction from './pages/Introduction';
-import Projects from './pages/Projects';
+import { useRef } from 'react';
+import { Container, Box } from '@mui/material';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { usePagesContext } from './context/pages/pagesContext';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Page from './components/Page';
 
 function App() {
+    const location = useLocation();
+    const nodeRef = useRef(null);
+    const { index, cv, introduction, projects } = usePagesContext();
     return (
-        <BrowserRouter>
-            <Container
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    minHeight: '100vh',
-                }}
-            >
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/cv" element={<CV />} />
-                    <Route path="/introduction" element={<Introduction />} />
-                    <Route path="/projects" element={<Projects />} />
-                </Routes>
-                <Footer />
-            </Container>
-        </BrowserRouter>
+        <Container
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                minHeight: '100vh',
+            }}
+        >
+            <Navbar />
+            <SwitchTransition mode="out-in">
+                <CSSTransition
+                    key={location.key}
+                    timeout={500}
+                    classNames="page-load"
+                    nodeRef={nodeRef}
+                    addEndListener={(done) => {
+                        nodeRef.current.addEventListener('transitionend', done, false);
+                    }}
+                >
+                    <Box sx={{ width: '100%' }} ref={nodeRef}>
+                        <Routes location={location}>
+                            <Route path="/" element={<Page page={index} pageId="index" />} />
+                            <Route path="/cv" element={<Page page={cv} pageId="cv" />} />
+                            <Route path="/introduction" element={<Page page={introduction} pageId="introduction" />} />
+                            <Route path="/projects" element={<Page page={projects} pageId="projects" />} />
+                        </Routes>
+                    </Box>
+                </CSSTransition>
+            </SwitchTransition>
+            <Footer />
+        </Container>
     );
 }
 
