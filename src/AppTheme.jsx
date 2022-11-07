@@ -1,6 +1,6 @@
 import React from 'react';
 import { CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { useThemeContext } from './context/theme/themeContext';
 
 function AppTheme({ children }) {
@@ -8,11 +8,13 @@ function AppTheme({ children }) {
 
     const newTheme = React.useMemo(
         () =>
-            createTheme({
-                palette: {
-                    mode: theme,
-                },
-            }),
+            responsiveFontSizes(
+                createTheme({
+                    palette: {
+                        mode: theme,
+                    },
+                })
+            ),
         [theme]
     );
     return (

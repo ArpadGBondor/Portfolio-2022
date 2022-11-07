@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { useThemeContext } from '../context/theme/themeContext';
+import Paragraph from './paragraphs/Paragraph';
 
 function Hero({ hero }) {
     const { theme } = useThemeContext();
@@ -24,10 +25,14 @@ function Hero({ hero }) {
                     left: '0',
                     width: '100%',
                     height: '100%',
+                    textAlign: 'center',
                 }}
             >
                 <Typography variant="h1">{hero.h1}</Typography>
                 <Typography variant="subtitle1">{hero.small}</Typography>
+                {hero.p.map((p, idx) => (
+                    <Paragraph key={idx} p={p} />
+                ))}
             </Box>
         </Box>
     );

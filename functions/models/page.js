@@ -4,14 +4,27 @@
  */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ParagraphSchema = new Schema({
+    type: String,
+    sentences: [String], // "typing"
+    text: String, // "link", "text"
+    width: String, // "image"
+    height: String, // "image"
+    maxWidth: String, // "image"
+    maxHeight: String, // "image"
+    src: String, // "image"
+    alt: String, // "image"
+    style: String, // "image"
+    href: String, // "link"
+});
+
 const PageSchema = new Schema({
     page: String,
     page_type: String,
     hero: {
         h1: String,
         small: String,
-        p: String,
-        img_url: String,
+        p: [ParagraphSchema],
     },
     content: [
         {
