@@ -10,7 +10,11 @@ function Paragraph({ p }) {
         case 'typing':
             return <Typing sentences={p.sentences} />;
         case 'text':
-            return <Typography variant="p">{p.text}</Typography>;
+            return (
+                <Typography sx={{ width: '100%', textAlign: 'left' }} variant="p">
+                    {p.text}
+                </Typography>
+            );
         case 'link':
             if (p.href.includes('http')) {
                 return (

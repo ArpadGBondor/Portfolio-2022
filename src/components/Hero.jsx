@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Container } from '@mui/material';
 import { useThemeContext } from '../context/theme/themeContext';
 import Paragraph from './paragraphs/Paragraph';
 
@@ -11,6 +11,7 @@ function Hero({ hero }) {
                 minHeight: '100vh',
                 background: `url(${hero.img_url}) center/cover fixed no-repeat, #7777`,
                 position: 'relative',
+                marginBottom: '1rem',
             }}
         >
             <Box
@@ -28,11 +29,20 @@ function Hero({ hero }) {
                     textAlign: 'center',
                 }}
             >
-                <Typography variant="h1">{hero.h1}</Typography>
-                <Typography variant="subtitle1">{hero.small}</Typography>
-                {hero.p.map((p, idx) => (
-                    <Paragraph key={idx} p={p} />
-                ))}
+                <Container
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Typography variant="h1">{hero.h1}</Typography>
+                    <Typography variant="subtitle1">{hero.small}</Typography>
+                    {hero.p.map((p, idx) => (
+                        <Paragraph key={idx} p={p} />
+                    ))}
+                </Container>
             </Box>
         </Box>
     );

@@ -30,7 +30,7 @@ const PageSchema = new Schema({
         {
             h2: String,
             small: String,
-            p: [String],
+            p: [ParagraphSchema],
             read_more: String,
             background_img_url: String,
             img_src: String,

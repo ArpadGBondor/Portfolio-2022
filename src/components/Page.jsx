@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { usePagesContext } from '../context/pages/pagesContext';
 
 import Hero from './Hero';
+import Section from './sections/Section';
 
 function Page({ page, pageId }) {
     const { loadPage } = usePagesContext();
@@ -18,10 +19,10 @@ function Page({ page, pageId }) {
     return (
         <>
             <Hero hero={page.hero} />
-            <Box sx={{ textAlign: 'center', margin: '3rem 0' }}>
-                <h1>{pageId}</h1>
-                <p>Work in progress...</p>
-            </Box>
+
+            {page.content.map((section, idx) => (
+                <Section section={section} key={idx} />
+            ))}
         </>
     );
 }

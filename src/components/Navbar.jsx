@@ -72,7 +72,8 @@ function Navbar() {
                         noWrap
                         href="/"
                     >
-                        Gabriel's portfolio
+                        {/*Gabriel's portfolio*/}
+                        Work in progress...
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
                         <IconButton
