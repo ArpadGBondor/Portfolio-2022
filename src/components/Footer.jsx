@@ -15,7 +15,7 @@ function Footer() {
                     justifyContent: 'center',
                 }}
             >
-                <Typography>Copyright © 2022 Árpád Gábor Bondor</Typography>
+                <Typography>Copyright © 2022-2023 Árpád Gábor Bondor</Typography>
             </Container>
         </>
     );

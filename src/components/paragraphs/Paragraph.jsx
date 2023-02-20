@@ -1,5 +1,6 @@
 import React from 'react';
 import Typing from './Typing';
+import Contacts from './Contacts';
 import { Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,8 @@ function Paragraph({ p }) {
     const navigate = useNavigate();
     if (typeof p !== 'object') return <Typography>Paragraph not implemented.</Typography>;
     switch (p.type) {
+        case 'contacts':
+            return <Contacts />;
         case 'typing':
             return <Typing sentences={p.sentences} />;
         case 'text':
