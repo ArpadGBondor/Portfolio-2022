@@ -37,7 +37,7 @@ const Message = () => {
         <Grid container alignItems="center" justifyContent="center">
             <Grid item xs={12} md={6} justifyContent="center" alignItems="center">
                 <form onSubmit={handleSubmit}>
-                    <FormControl sx={{ width: '100%' }}>
+                    <FormControl sx={{ width: '100%', padding: '1rem' }}>
                         <TextField
                             type="text"
                             name="name"
@@ -61,7 +61,7 @@ const Message = () => {
                             value={message}
                             onChange={onChange}
                             placeholder="Message"
-                            minRows={6}
+                            minRows={5}
                             required
                             multiline={true}
                             variant="outlined"
