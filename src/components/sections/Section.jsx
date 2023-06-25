@@ -18,6 +18,8 @@ function Section({ section }) {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    width: '100%',
+                    height: '100%',
                 }}
             >
                 <Box
@@ -38,17 +40,32 @@ function Section({ section }) {
                         alignItems: 'center',
                         width: '100%',
                         height: '100%',
-                        textAlign: 'center',
+                        textAlign: 'justify',
                         padding: '1rem',
                         zIndex: '1',
                     }}
                 >
-                    <Typography sx={{ margin: '1rem' }} variant="h2">
+                    <Typography sx={{ margin: '1rem', textAlign: 'center' }} variant="h2">
                         {section.h2}
                     </Typography>
-                    {section.p.map((p, idx) => (
-                        <Paragraph key={idx} p={p} />
-                    ))}
+                    <Box sx={{ width: '100%' }}>
+                        {section.img_src && (
+                            <Box
+                                sx={{
+                                    margin: 'auto',
+                                    float: { sm: 'none', md: 'right' },
+                                    width: { sm: '75%', md: '50%' },
+                                    padding: { sm: '2rem', md: '0 0 0 1rem' },
+                                }}
+                            >
+                                <img style={{ width: '100%' }} src={section.img_src} alt={`${section.h2} section`} />
+                            </Box>
+                        )}
+
+                        {section.p.map((p, idx) => (
+                            <Paragraph key={idx} p={p} />
+                        ))}
+                    </Box>
                 </Container>
             </Box>
         </section>

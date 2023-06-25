@@ -25,14 +25,18 @@ function Paragraph({ p }) {
             if (p.href.includes('http')) {
                 return (
                     <a href={p.href} style={{ textDecoration: 'none' }} target="_blank" rel="noreferrer">
-                        <Button sx={{ margin: '1rem' }} variant="contained">
+                        <Button sx={{ margin: '1rem auto', display: 'block' }} variant="contained">
                             {p.text}
                         </Button>
                     </a>
                 );
             } else {
                 return (
-                    <Button sx={{ margin: '1rem' }} variant="contained" onClick={() => navigate(p.href)}>
+                    <Button
+                        sx={{ margin: '1rem auto', display: 'block' }}
+                        variant="contained"
+                        onClick={() => navigate(p.href)}
+                    >
                         {p.text}
                     </Button>
                 );

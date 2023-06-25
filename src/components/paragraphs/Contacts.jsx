@@ -6,7 +6,7 @@ import Icon from '../Icon';
 const Contacts = () => {
     const { contacts, socials } = useContactsContext();
     return (
-        <Grid container alignItems="center">
+        <Grid container alignItems="center" sx={{ textAlign: 'center' }}>
             <Grid item xs={12} md={6} justifyContent="center" alignItems="center">
                 {contacts.map((contact, index) => (
                     <p key={index}>
