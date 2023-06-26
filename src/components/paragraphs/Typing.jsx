@@ -11,7 +11,7 @@ function Typing({ sentences }) {
         sequence.push(1500);
     });
     return (
-        <Typography variant="p">
+        <Typography variant="h4">
             <TypeAnimation sequence={sequence} wrapper="span" cursor={true} repeat={Infinity} />
         </Typography>
     );
