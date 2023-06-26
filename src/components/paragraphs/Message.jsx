@@ -36,7 +36,8 @@ const Message = () => {
     return (
         <Grid container alignItems="center" justifyContent="center">
             <Grid item xs={12} md={6} justifyContent="center" alignItems="center">
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}> */}
+                <form action="https://getform.io/f/ec7c72e8-90b3-4997-9e07-54fea54b054f" method="POST">
                     <FormControl sx={{ width: '100%', padding: '1rem' }}>
                         <TextField
                             type="text"
@@ -66,6 +67,8 @@ const Message = () => {
                             multiline={true}
                             variant="outlined"
                         ></TextField>
+                        {/* <!-- add hidden Honeypot input to prevent spams --> */}
+                        <TextField type="hidden" name="_gotcha" sx={{ display: 'none', important: false }}></TextField>
                         <Button type="submit" variant="contained" color="primary">
                             Send Message
                         </Button>

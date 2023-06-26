@@ -3,7 +3,7 @@ import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Stack,
 import { useNavigate } from 'react-router-dom';
 
 import { useThemeContext } from '../context/theme/themeContext';
-import { FaBars, FaMoon, FaSun, FaHome, FaListAlt, FaFileAlt, FaUserAlt } from 'react-icons/fa';
+import { FaBars, FaMoon, FaSun, FaHome, FaListAlt, /*FaFileAlt,*/ FaUserAlt } from 'react-icons/fa';
 
 function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -24,11 +24,11 @@ function Navbar() {
         onClick: () => navigate('/'),
         icon: FaHome,
     });
-    buttonList.push({
-        text: 'CV',
-        onClick: () => navigate('/cv'),
-        icon: FaFileAlt,
-    });
+    // buttonList.push({
+    //     text: 'CV',
+    //     onClick: () => navigate('/cv'),
+    //     icon: FaFileAlt,
+    // });
     buttonList.push({
         text: 'Introduction',
         onClick: () => navigate('/introduction'),
@@ -72,8 +72,7 @@ function Navbar() {
                         noWrap
                         href="/"
                     >
-                        {/*Gabriel's portfolio*/}
-                        Work in progress...
+                        Gabriel's portfolio
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
                         <IconButton
