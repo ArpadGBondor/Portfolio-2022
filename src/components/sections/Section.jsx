@@ -24,7 +24,7 @@ function Section({ section }) {
       >
         <Box
           sx={{
-            backgroundColor: theme === 'light' ? '#BBDEFBDD' : '#212121DD',
+            backgroundColor: theme === 'light' ? '#D9D9D9DD' : '#212121DD',
             position: 'absolute',
             top: '0',
             left: '0',
@@ -43,11 +43,41 @@ function Section({ section }) {
             textAlign: 'justify',
             padding: '1rem',
             zIndex: '1',
+            color: theme === 'light' ? 'black' : 'darkgrey',
           }}
         >
-          <Box sx={{ margin: '1rem', textAlign: 'center' }}>
+          <Box
+            sx={{
+              margin: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             <Typography variant="h2">{section.h2}</Typography>
-            {section.small && <small>{section.small}</small>}
+            {section.small && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <hr
+                  style={{ height: '0', width: '2rem', borderColor: '#007bff' }}
+                />
+                <Typography
+                  sx={{ marginX: '1rem', background: 'inherit' }}
+                  variant="body1"
+                >
+                  {section.small}
+                </Typography>
+                <hr
+                  style={{ height: '0', width: '2rem', borderColor: '#007bff' }}
+                />
+              </Box>
+            )}
           </Box>
 
           <Box sx={{ width: '100%' }}>
@@ -60,7 +90,11 @@ function Section({ section }) {
                   padding: { sm: '2rem', md: '0 0 0 1rem' },
                 }}
               >
-                <img style={{ width: '100%' }} src={section.img_src} alt={`${section.h2} section`} />
+                <img
+                  style={{ width: '100%' }}
+                  src={section.img_src}
+                  alt={`${section.h2} section`}
+                />
               </Box>
             )}
 
