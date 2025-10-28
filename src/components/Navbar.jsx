@@ -22,6 +22,7 @@ import {
   FaListAlt,
   /*FaFileAlt,*/ FaUserAlt,
 } from 'react-icons/fa';
+import bootstrapColors from '../constants/colors';
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -41,7 +42,7 @@ function Navbar() {
     text: 'Home',
     onClick: () => navigate('/'),
     icon: FaHome,
-    color: '#007bff',
+    color: bootstrapColors.blue,
   });
   // buttonList.push({
   //     text: 'CV',
@@ -52,27 +53,27 @@ function Navbar() {
     text: 'My Journey',
     onClick: () => navigate('/introduction'),
     icon: FaUserAlt,
-    color: '#28a745',
+    color: bootstrapColors.green,
   });
   buttonList.push({
     text: 'Projects',
     onClick: () => navigate('/projects'),
     icon: FaListAlt,
-    color: '#dc3545',
+    color: bootstrapColors.red,
   });
   if (theme === 'light') {
     buttonList.push({
       text: 'Change theme',
       onClick: selectDarkTheme,
       icon: FaSun,
-      color: '#fd7e14',
+      color: bootstrapColors.orange,
     });
   } else {
     buttonList.push({
       text: 'Change theme',
       onClick: selectLightTheme,
       icon: FaMoon,
-      color: '#ffc107',
+      color: bootstrapColors.yellow,
     });
   }
 
@@ -91,7 +92,7 @@ function Navbar() {
             sx={{
               flexGrow: 1,
               mr: 2,
-              display: { xs: 'none', lg: 'flex' },
+              display: { xs: 'none', lg: 'block' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -102,10 +103,8 @@ function Navbar() {
             noWrap
             href="/"
           >
-            <div>
-              <span style={{ color: '#007bff' }}>G</span>abriel's{' '}
-              <span style={{ color: '#007bff' }}>p</span>ortfolio
-            </div>
+            <span style={{ color: bootstrapColors.blue }}>G</span>abriel's{' '}
+            <span style={{ color: bootstrapColors.blue }}>P</span>ortfolio
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
             <IconButton
@@ -163,7 +162,6 @@ function Navbar() {
               </Button>
             ))}
           </Stack>
-
           <Typography
             sx={{
               flexGrow: 1,
@@ -180,8 +178,8 @@ function Navbar() {
             href="/"
           >
             <div>
-              <span style={{ color: '#007bff' }}>G</span>abriel's{' '}
-              <span style={{ color: '#007bff' }}>p</span>ortfolio
+              <span style={{ color: bootstrapColors.blue }}>G</span>abriel's{' '}
+              <span style={{ color: bootstrapColors.blue }}>P</span>ortfolio
             </div>
           </Typography>
         </Toolbar>

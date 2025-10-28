@@ -16,11 +16,11 @@ function Page({ page, pageId }) {
   }, []);
   if (!page) return <Spinner />;
   return (
-    <Box sx={{ background: '#007bff' }}>
+    <Box>
       <Hero hero={page.hero} />
 
       {page.content.map((section, idx) => (
-        <Section section={section} key={idx} />
+        <Section section={section} key={idx} sectionIndex={idx} />
       ))}
     </Box>
   );

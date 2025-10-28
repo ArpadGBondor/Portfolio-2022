@@ -4,7 +4,7 @@ import { Container, Typography } from '@mui/material';
 function Footer() {
   return (
     <>
-      <Container sx={{ height: '1rem' }} />
+      <Container sx={{ height: '2rem' }} />
       <Container
         sx={{
           position: 'absolute',

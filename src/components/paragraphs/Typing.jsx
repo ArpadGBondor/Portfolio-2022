@@ -1,8 +1,9 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import { Typography } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 
 function Typing({ sentences }) {
+  const theme = useTheme();
   const sequence = [];
   sentences.forEach((s) => {
     sequence.push(s);
@@ -11,7 +12,7 @@ function Typing({ sentences }) {
     sequence.push(1500);
   });
   return (
-    <Typography sx={{ color: '#dc3545' }} variant="h4">
+    <Typography sx={{ color: theme.palette.primary.main }} variant="h4">
       <TypeAnimation
         sequence={sequence}
         wrapper="span"

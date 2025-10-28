@@ -6,6 +6,7 @@ import {
   responsiveFontSizes,
 } from '@mui/material/styles';
 import { useThemeContext } from './context/theme/themeContext';
+import bootstrapColors from './constants/colors';
 
 function AppTheme({ children }) {
   const { theme } = useThemeContext();
@@ -17,7 +18,7 @@ function AppTheme({ children }) {
           palette: {
             mode: theme,
             primary: {
-              main: '#007bff',
+              main: bootstrapColors.blue,
             },
           },
         })

@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography, Box, Container } from '@mui/material';
 import { useThemeContext } from '../context/theme/themeContext';
 import Paragraph from './paragraphs/Paragraph';
+import bootstrapColors from '../constants/colors';
+import SectionHeading from './sections/SectionHeading';
 
 function Hero({ hero }) {
   const { theme } = useThemeContext();
@@ -11,13 +13,13 @@ function Hero({ hero }) {
         minHeight: '100vh',
         background: `url(${hero.img_url}) center/cover fixed no-repeat, #7777`,
         position: 'relative',
-        marginBottom: '1rem',
+        paddingBottom: '1rem',
       }}
     >
       <Box
         sx={{
           backgroundColor: theme === 'light' ? '#D9D9D9DD' : '#212121DD',
-          color: theme === 'light' ? 'black' : 'darkgrey',
+          color: theme === 'light' ? 'black' : 'lightgrey',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -38,7 +40,7 @@ function Hero({ hero }) {
             alignItems: 'center',
           }}
         >
-          <Typography variant="h1">{hero.h1}</Typography>
+          <SectionHeading text={hero.h1} variant="h1" />
           {hero.small && (
             <Box
               sx={{
@@ -48,7 +50,11 @@ function Hero({ hero }) {
               }}
             >
               <hr
-                style={{ height: '0', width: '2rem', borderColor: '#007bff' }}
+                style={{
+                  height: '0',
+                  width: '2rem',
+                  borderColor: bootstrapColors.blue,
+                }}
               />
               <Typography
                 sx={{ marginX: '1rem', background: 'inherit' }}
@@ -57,7 +63,11 @@ function Hero({ hero }) {
                 {hero.small}
               </Typography>
               <hr
-                style={{ height: '0', width: '2rem', borderColor: '#007bff' }}
+                style={{
+                  height: '0',
+                  width: '2rem',
+                  borderColor: bootstrapColors.blue,
+                }}
               />
             </Box>
           )}
