@@ -13,6 +13,7 @@ export default function SectionHeading({ text, variant = 'h2' }) {
       variant={variant}
       sx={{
         display: 'flex',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         gap: '0.25em',
       }}
