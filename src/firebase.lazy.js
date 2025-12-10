@@ -1,0 +1,29 @@
+let firebaseApp = null;
+let firebaseDb = null;
+
+export async function getFirebase() {
+  if (firebaseApp) {
+    return { app: firebaseApp, db: firebaseDb };
+  }
+
+  // Dynamically import Firebase modules
+  const [{ initializeApp }, { getFirestore }] = await Promise.all([
+    import('firebase/app'),
+    import('firebase/firestore'),
+  ]);
+
+  const firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_CONFIG_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_CONFIG_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_CONFIG_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_CONFIG_STORAGE_BUCKET,
+    messagingSenderId:
+      process.env.REACT_APP_FIREBASE_CONFIG_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_CONFIG_APP_ID,
+  };
+
+  firebaseApp = initializeApp(firebaseConfig);
+  firebaseDb = getFirestore(firebaseApp);
+
+  return { app: firebaseApp, db: firebaseDb };
+}

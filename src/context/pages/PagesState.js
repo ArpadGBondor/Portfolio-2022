@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import axios from 'axios';
 import { PagesContext } from './pagesContext';
 import pagesReducer from './pagesReducer';
 import {
@@ -9,6 +8,7 @@ import {
   LOAD_PAGE_FAIL,
   CLEAR_ERROR,
 } from '../types';
+import { getPage } from '../../utils/getFirebaseContent';
 
 const PagesState = (props) => {
   const initialState = {
@@ -27,20 +27,20 @@ const PagesState = (props) => {
       let response;
       switch (pageId) {
         case 'index':
-          response = await axios.get(`/api/page?pageId=${pageId}`);
+          response = await getPage(pageId);
           dispatch({ type: SET_INDEX, payload: response.data });
           break;
         // cv is not in database yet
         // case 'cv':
-        //     response = await axios.get(`/api/page?pageId=${pageId}`);
+        //     response = await getPage(pageId);
         //     dispatch({ type: SET_CV, payload: response.data });
         //     break;
         case 'introduction':
-          response = await axios.get(`/api/page?pageId=${pageId}`);
+          response = await getPage(pageId);
           dispatch({ type: SET_INTRODUCTION, payload: response.data });
           break;
         case 'projects':
-          response = await axios.get(`/api/page?pageId=${pageId}`);
+          response = await getPage(pageId);
           dispatch({ type: SET_PROJECTS, payload: response.data });
           break;
         default:
