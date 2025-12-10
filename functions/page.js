@@ -82,6 +82,7 @@ async function handleGetRequest(event, context, callback) {
             h1: data.hero.h1 ?? '',
             small: data.hero.small ?? '',
             p: data.hero.p.map(paragraphMap),
+            img_url: data.hero.img_url,
           },
           content: data.content.map(contentMap),
         });
