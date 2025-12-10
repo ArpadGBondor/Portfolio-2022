@@ -1,7 +1,5 @@
 # Portfolio-2022
 
-## Work in progress...
-
 ## Deployed:
 
 -   Deployed [on Netlify](https://gabriel-bondor.netlify.app/)
