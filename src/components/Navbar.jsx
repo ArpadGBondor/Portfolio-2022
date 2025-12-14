@@ -23,11 +23,16 @@ import {
   /*FaFileAlt,*/ FaUserAlt,
 } from 'react-icons/fa';
 import bootstrapColors from '../constants/colors';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const navigate = useNavigate();
   const { theme, selectLightTheme, selectDarkTheme } = useThemeContext();
+  const isScrolledDown = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -79,11 +84,17 @@ function Navbar() {
 
   return (
     <AppBar
+      elevation={isScrolledDown ? 4 : 0}
       sx={{
         position: 'fixed',
         top: '0',
-        background: theme === 'light' ? 'lightgrey' : 'black',
+        backgroundColor: isScrolledDown
+          ? theme === 'light'
+            ? 'lightgrey'
+            : 'black'
+          : 'transparent',
         color: theme === 'light' ? 'black' : 'lightgrey',
+        transition: 'background-color 0.5s ease, box-shadow 0.5s ease',
       }}
     >
       <Container maxWidth="xl">
