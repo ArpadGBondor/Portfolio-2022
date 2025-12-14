@@ -35,6 +35,11 @@ const Message = () => {
               placeholder="Your Name"
               required
               variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '12px 12px 0 0',
+                },
+              }}
             />
             <TextField
               type="email"
@@ -44,6 +49,12 @@ const Message = () => {
               placeholder="Your E-mail"
               required
               variant="outlined"
+              sx={{
+                mt: '-1px',
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 0,
+                },
+              }}
             />
             <TextField
               name="message"
@@ -54,14 +65,29 @@ const Message = () => {
               required
               multiline={true}
               variant="outlined"
-            ></TextField>
+              sx={{
+                mt: '-1px',
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 0,
+                },
+              }}
+            />
             {/* <!-- add hidden Honeypot input to prevent spams --> */}
             <TextField
               type="hidden"
               name="_gotcha"
               sx={{ display: 'none', important: false }}
             ></TextField>
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{
+                mt: '-1px',
+                borderRadius: '0 0 12px 12px',
+                height: 48,
+              }}
+            >
               Send Message
             </Button>
           </FormControl>
