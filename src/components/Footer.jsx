@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import { useContactsContext } from '../context/contacts/contactsContext';
 import Icon from './Icon';
-import { Link } from '@mui/material';
+import LinkExternal from './LinkExternal';
 
 function Footer() {
   const { contacts, socials } = useContactsContext();
   return (
     <>
-      <Container sx={{ height: { xs: '14rem', sm: '11rem', md: '5rem' } }} />
+      <Container sx={{ height: { xs: '15rem', sm: '12rem', md: '6rem' } }} />
       <Container
         sx={{
           padding: { xs: '2rem', md: '1rem' },
@@ -33,19 +33,14 @@ function Footer() {
             justifyContent: 'center',
             alignItems: 'center',
             gap: '2rem',
-            fontSize: '2rem',
+            fontSize: '1.5rem',
           }}
         >
           {socials.map((contact, index) => (
             <span key={index}>
-              <Link
-                href={contact.link}
-                underline="none"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <LinkExternal href={contact.link}>
                 <Icon fontAwsomeCode={contact.icon} />
-              </Link>
+              </LinkExternal>
             </span>
           ))}
         </Box>
@@ -65,23 +60,18 @@ function Footer() {
               flex: { xs: 'unset', sm: 2 },
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
-              justifyContent: 'center',
+              justifyContent: 'space-around',
               alignItems: 'center',
               fontSize: '1rem',
-              gap: { xs: '0', sm: '2rem' },
+              gap: { xs: '0', sm: '4rem' },
             }}
           >
             {contacts.map((contact, index) => (
               <span key={index}>
                 {contact.link ? (
-                  <Link
-                    href={contact.link}
-                    underline="none"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <LinkExternal href={contact.link}>
                     <Icon fontAwsomeCode={contact.icon} /> {contact.address}
-                  </Link>
+                  </LinkExternal>
                 ) : (
                   <>
                     <Icon fontAwsomeCode={contact.icon} /> {contact.address}

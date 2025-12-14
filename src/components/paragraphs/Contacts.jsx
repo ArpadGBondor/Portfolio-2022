@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, Grid2 } from '@mui/material';
+import { Grid2 } from '@mui/material';
 import { useContactsContext } from '../../context/contacts/contactsContext';
 import Icon from '../Icon';
+import LinkExternal from '../LinkExternal';
+import { Box } from '@mui/material';
 
 const Contacts = () => {
   const { contacts, socials } = useContactsContext();
@@ -21,15 +23,10 @@ const Contacts = () => {
         {contacts.map((contact, index) => (
           <p key={index}>
             {contact.link ? (
-              <Link
-                href={contact.link}
-                underline="none"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <LinkExternal href={contact.link}>
                 <Icon fontAwsomeCode={contact.icon} /> {contact.name}:{' '}
                 {contact.address}
-              </Link>
+              </LinkExternal>
             ) : (
               <>
                 <Icon fontAwsomeCode={contact.icon} /> {contact.name}:{' '}
@@ -45,18 +42,23 @@ const Contacts = () => {
         justifyContent="center"
         alignItems="center"
       >
-        {socials.map((contact, index) => (
-          <p key={index}>
-            <Link
-              href={contact.link}
-              underline="none"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon fontAwsomeCode={contact.icon} /> {contact.name}
-            </Link>
-          </p>
-        ))}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Box sx={{ textAlign: 'left' }}>
+            {socials.map((contact, index) => (
+              <p key={index}>
+                <LinkExternal href={contact.link}>
+                  <Icon fontAwsomeCode={contact.icon} /> {contact.name}
+                </LinkExternal>
+              </p>
+            ))}
+          </Box>
+        </Box>
       </Grid2>
     </Grid2>
   );

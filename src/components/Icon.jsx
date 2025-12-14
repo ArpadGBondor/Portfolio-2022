@@ -1,24 +1,36 @@
-import { FaPhone, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaPhone,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaFacebook,
+  FaWhatsapp,
+} from 'react-icons/fa';
 import React from 'react';
 
-const Icon = ({ fontAwsomeCode }) => {
-    switch (fontAwsomeCode) {
-        case 'fas fa-phone':
-            return <FaPhone />;
-        case 'fas fa-envelope':
-            return <FaEnvelope />;
-        case 'fab fa-linkedin':
-            return <FaLinkedin />;
-        case 'fab fa-github':
-            return <FaGithub />;
-        case 'fab fa-facebook':
-            return <FaFacebook />;
-        case 'fab fa-whatsapp':
-            return <FaWhatsapp />;
+const iconStyle = {
+  fontSize: '2em', // ← 1.5 × parent font-size
+  verticalAlign: 'middle',
+};
 
-        default:
-            return <p>Icon not available.</p>;
-    }
+const Icon = ({ fontAwsomeCode }) => {
+  switch (fontAwsomeCode) {
+    case 'fas fa-phone':
+      return <FaPhone style={iconStyle} />;
+    case 'fas fa-envelope':
+      return <FaEnvelope style={iconStyle} />;
+    case 'fab fa-linkedin':
+      return <FaLinkedin style={iconStyle} />;
+    case 'fab fa-github':
+      return <FaGithub style={iconStyle} />;
+    case 'fab fa-facebook':
+      return <FaFacebook style={iconStyle} />;
+    case 'fab fa-whatsapp':
+      return <FaWhatsapp style={iconStyle} />;
+
+    default:
+      return <p>Icon not available.</p>;
+  }
 };
 
 export default Icon;
