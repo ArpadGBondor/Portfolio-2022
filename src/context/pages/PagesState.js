@@ -7,6 +7,7 @@ import {
   SET_PROJECTS,
   LOAD_PAGE_FAIL,
   CLEAR_ERROR,
+  SET_SKILLS,
 } from '../types';
 import { getPage } from '../../utils/getFirebaseContent';
 
@@ -15,6 +16,7 @@ const PagesState = (props) => {
     index: null,
     cv: null,
     projects: null,
+    skills: null,
     introduction: null,
     error: null,
   };
@@ -38,6 +40,10 @@ const PagesState = (props) => {
         case 'introduction':
           response = await getPage(pageId);
           dispatch({ type: SET_INTRODUCTION, payload: response.data });
+          break;
+        case 'skills':
+          response = await getPage(pageId);
+          dispatch({ type: SET_SKILLS, payload: response.data });
           break;
         case 'projects':
           response = await getPage(pageId);
