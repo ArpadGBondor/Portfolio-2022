@@ -37,7 +37,7 @@ function App() {
             width: '100%',
             position: 'relative',
             margin: '0',
-            background: theme === 'light' ? 'darkgrey' : 'black',
+            background: theme === 'light' ? 'lightgrey' : 'black',
           }}
         >
           {!contacts || !socials ? (

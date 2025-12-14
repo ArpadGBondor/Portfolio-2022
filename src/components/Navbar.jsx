@@ -82,7 +82,7 @@ function Navbar() {
       sx={{
         position: 'fixed',
         top: '0',
-        background: theme === 'light' ? 'darkgrey' : 'black',
+        background: theme === 'light' ? 'lightgrey' : 'black',
         color: theme === 'light' ? 'black' : 'lightgrey',
       }}
     >

@@ -8,8 +8,8 @@ function CustomToastContainer() {
     <ToastContainer
       style={{ top: '5rem' }}
       toastStyle={{
-        background: theme === 'light' ? 'darkgrey' : 'black',
-        color: theme === 'light' ? 'black' : 'darkgrey',
+        background: theme === 'light' ? 'lightgrey' : 'black',
+        color: theme === 'light' ? 'black' : 'lightgrey',
       }}
     />
   );
