@@ -5,6 +5,7 @@ import {
   FaGithub,
   FaFacebook,
   FaWhatsapp,
+  FaCog,
 } from 'react-icons/fa';
 import React from 'react';
 
@@ -27,6 +28,8 @@ const Icon = ({ fontAwsomeCode }) => {
       return <FaFacebook style={iconStyle} />;
     case 'fab fa-whatsapp':
       return <FaWhatsapp style={iconStyle} />;
+    case 'fa fa-cog':
+      return <FaCog style={iconStyle} />;
 
     default:
       return <p>Icon not available.</p>;

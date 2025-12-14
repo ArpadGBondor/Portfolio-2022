@@ -8,7 +8,7 @@ function Footer() {
   const { contacts, socials } = useContactsContext();
   return (
     <>
-      <Container sx={{ height: { xs: '15rem', sm: '12rem', md: '6rem' } }} />
+      <Container sx={{ height: { xs: '17rem', sm: '12rem', md: '6rem' } }} />
       <Container
         sx={{
           padding: { xs: '2rem', md: '1rem' },

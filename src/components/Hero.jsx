@@ -4,6 +4,7 @@ import { useThemeContext } from '../context/theme/themeContext';
 import Paragraph from './paragraphs/Paragraph';
 import bootstrapColors from '../constants/colors';
 import SectionHeading from './sections/SectionHeading';
+import SpinningCog from './SpinningCog';
 
 function Hero({ hero }) {
   const { theme } = useThemeContext();
@@ -40,6 +41,42 @@ function Hero({ hero }) {
             alignItems: 'center',
           }}
         >
+          <Box>
+            <SpinningCog
+              size="4em"
+              sx={{ marginX: '-3px', color: bootstrapColors.blue }}
+            />
+            <SpinningCog
+              size="4em"
+              sx={{ marginX: '-3px', color: bootstrapColors.green }}
+              reverse
+            />
+            <SpinningCog
+              size="4em"
+              sx={{ marginX: '-3px', color: bootstrapColors.red }}
+            />
+            <SpinningCog
+              size="4em"
+              sx={{
+                marginX: '-3px',
+                color:
+                  theme === 'light'
+                    ? bootstrapColors.orange
+                    : bootstrapColors.yellow,
+              }}
+              reverse
+            />
+            <SpinningCog
+              size="4em"
+              sx={{
+                marginX: '-3px',
+                color:
+                  theme === 'light'
+                    ? bootstrapColors.black
+                    : bootstrapColors.white,
+              }}
+            />
+          </Box>
           <SectionHeading text={hero.h1} variant="h1" />
           {hero.small && (
             <Box
