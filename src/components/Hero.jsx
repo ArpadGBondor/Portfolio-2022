@@ -53,7 +53,21 @@ function Hero({ hero }) {
             />
             <SpinningCog
               size="4em"
-              sx={{ marginX: '-3px', color: bootstrapColors.red }}
+              sx={{
+                marginX: '-3px',
+                color:
+                  theme === 'light'
+                    ? bootstrapColors.black
+                    : bootstrapColors.white,
+              }}
+            />
+            <SpinningCog
+              size="4em"
+              sx={{
+                marginX: '-3px',
+                color: bootstrapColors.red,
+              }}
+              reverse
             />
             <SpinningCog
               size="4em"
@@ -64,17 +78,6 @@ function Hero({ hero }) {
                     ? bootstrapColors.orange
                     : bootstrapColors.yellow,
               }}
-              reverse
-            />
-            <SpinningCog
-              size="4em"
-              sx={{
-                marginX: '-3px',
-                color:
-                  theme === 'light'
-                    ? bootstrapColors.black
-                    : bootstrapColors.white,
-              }}
             />
           </Box>
           <SectionHeading text={hero.h1} variant="h1" />
@@ -84,6 +87,7 @@ function Hero({ hero }) {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
+                marginTop: '1rem',
               }}
             >
               <hr
