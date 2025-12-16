@@ -2,8 +2,9 @@ import React from 'react';
 import Typing from './Typing';
 import Contacts from './Contacts';
 import Message from './Message';
-import { Typography, Button, useTheme } from '@mui/material';
+import { Typography, Button, useTheme, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import SectionHeading from '../sections/SectionHeading';
 
 function Paragraph({ p }) {
   const navigate = useNavigate();
@@ -30,6 +31,38 @@ function Paragraph({ p }) {
         >
           {p.text}
         </Typography>
+      );
+    case 'heading':
+      return <SectionHeading text={p.text} variant="h4" />;
+    case 'badges':
+      return (
+        <Box
+          sx={{
+            display: 'flex',
+            width: '100%',
+            marginBottom: '0.5rem',
+            justifyContent: 'center',
+            alignItems: 'center',
+            columnGap: '1rem',
+            flexWrap: 'wrap',
+          }}
+          variant="p"
+        >
+          {p.badges.map((badge, idx) => (
+            <span key={idx} class="skills-container">
+              <Box
+                component="img"
+                src={badge.url}
+                alt={badge.alt}
+                sx={{
+                  height: { xs: '1.5rem', md: '2rem' },
+                  width: 'auto',
+                  borderRadius: { xs: '0.75rem', md: '1rem' },
+                }}
+              />
+            </span>
+          ))}
+        </Box>
       );
     case 'link':
       if (p.href.includes('http')) {

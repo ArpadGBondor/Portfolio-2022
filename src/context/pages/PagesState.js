@@ -70,6 +70,7 @@ const PagesState = (props) => {
         cv: state.cv,
         projects: state.projects,
         introduction: state.introduction,
+        skills: state.skills,
         error: state.error,
         loadPage,
         clearError,

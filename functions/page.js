@@ -49,6 +49,14 @@ async function handleGetRequest(event, context, callback) {
       // data to Firestore
       data = await getPage(pageId);
 
+      const badgeMap = (badge) => {
+        console.log(`>>> ${JSON.stringify(badge)}`);
+        return {
+          url: badge.url ?? '',
+          alt: badge.alt ?? '',
+        };
+      };
+
       const paragraphMap = (p) => ({
         type: p.type ?? '',
         sentences: p.sentences,
@@ -61,6 +69,7 @@ async function handleGetRequest(event, context, callback) {
         alt: p.alt ?? '',
         style: p.style ?? '',
         href: p.href ?? '',
+        badges: (p.badges ?? []).map(badgeMap),
       });
 
       const contentMap = (content) => ({

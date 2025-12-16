@@ -4,9 +4,16 @@
  */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+const BadgeSchema = new Schema({
+  url: String,
+  alt: String,
+});
+
 const ParagraphSchema = new Schema({
   type: String,
   sentences: [String], // "typing"
+  badges: [BadgeSchema],
   text: String, // "link", "text"
   width: String, // "image"
   height: String, // "image"

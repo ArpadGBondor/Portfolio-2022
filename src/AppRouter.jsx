@@ -9,38 +9,49 @@ import { usePagesContext } from './context/pages/pagesContext';
 import Page from './components/Page';
 
 function AppRouter() {
-    const location = useLocation();
-    const nodeRef = useRef(null);
-    const { index, cv, introduction, projects, error, clearError } = usePagesContext();
-    useEffect(() => {
-        if (error) {
-            toast.error(error);
-            clearError();
-        }
-    }, [error, clearError]);
+  const location = useLocation();
+  const nodeRef = useRef(null);
+  const { index, cv, introduction, skills, projects, error, clearError } =
+    usePagesContext();
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      clearError();
+    }
+  }, [error, clearError]);
 
-    return (
-        <SwitchTransition mode="out-in">
-            <CSSTransition
-                key={location.key}
-                timeout={500}
-                classNames="page-load"
-                nodeRef={nodeRef}
-                addEndListener={(done) => {
-                    nodeRef.current.addEventListener('transitionend', done, false);
-                }}
-            >
-                <Box sx={{ width: '100%' }} ref={nodeRef}>
-                    <Routes location={location}>
-                        <Route path="/" element={<Page page={index} pageId="index" />} />
-                        <Route path="/cv" element={<Page page={cv} pageId="cv" />} />
-                        <Route path="/introduction" element={<Page page={introduction} pageId="introduction" />} />
-                        <Route path="/projects" element={<Page page={projects} pageId="projects" />} />
-                    </Routes>
-                </Box>
-            </CSSTransition>
-        </SwitchTransition>
-    );
+  return (
+    <SwitchTransition mode="out-in">
+      <CSSTransition
+        key={location.key}
+        timeout={500}
+        classNames="page-load"
+        nodeRef={nodeRef}
+        addEndListener={(done) => {
+          nodeRef.current.addEventListener('transitionend', done, false);
+        }}
+      >
+        <Box sx={{ width: '100%' }} ref={nodeRef}>
+          <Routes location={location}>
+            <Route path="/" element={<Page page={index} pageId="index" />} />
+            <Route path="/cv" element={<Page page={cv} pageId="cv" />} />
+            <Route
+              path="/introduction"
+              element={<Page page={introduction} pageId="introduction" />}
+            />
+            <Route
+              path="/skills"
+              element={<Page page={skills} pageId="skills" />}
+            />
+            <Route
+              path="/projects"
+              element={<Page page={projects} pageId="projects" />}
+            />
+          </Routes>
+        </Box>
+      </CSSTransition>
+    </SwitchTransition>
+  );
 }
 
 export default AppRouter;
