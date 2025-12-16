@@ -50,10 +50,15 @@ async function handleGetRequest(event, context, callback) {
       data = await getPage(pageId);
 
       const badgeMap = (badge) => {
-        console.log(`>>> ${JSON.stringify(badge)}`);
         return {
           url: badge.url ?? '',
           alt: badge.alt ?? '',
+        };
+      };
+
+      const cardMap = (card) => {
+        return {
+          p: (card.p ?? []).map(paragraphMap),
         };
       };
 
@@ -70,12 +75,13 @@ async function handleGetRequest(event, context, callback) {
         style: p.style ?? '',
         href: p.href ?? '',
         badges: (p.badges ?? []).map(badgeMap),
+        cards: (p.cards ?? []).map(cardMap),
       });
 
       const contentMap = (content) => ({
         h2: content.h2 ?? '',
         small: content.small ?? '',
-        p: content.p.map(paragraphMap),
+        p: (content.p ?? []).map(paragraphMap),
         read_more: content.read_more ?? '',
         background_img_url: content.background_img_url ?? '',
         img_src: content.img_src ?? '',
@@ -90,10 +96,10 @@ async function handleGetRequest(event, context, callback) {
           hero: {
             h1: data.hero.h1 ?? '',
             small: data.hero.small ?? '',
-            p: data.hero.p.map(paragraphMap),
+            p: (data.hero.p ?? []).map(paragraphMap),
             img_url: data.hero.img_url,
           },
-          content: data.content.map(contentMap),
+          content: (data.content ?? []).map(contentMap),
         });
     }
     return {

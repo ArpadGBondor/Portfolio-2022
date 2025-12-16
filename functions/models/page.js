@@ -10,6 +10,23 @@ const BadgeSchema = new Schema({
   alt: String,
 });
 
+const CardParagraphSchema = new Schema({
+  type: String,
+  sentences: [String], // "typing"
+  badges: [BadgeSchema],
+  text: String, // "link", "text"
+  width: String, // "image"
+  height: String, // "image"
+  maxWidth: String, // "image"
+  maxHeight: String, // "image"
+  src: String, // "image"
+  alt: String, // "image"
+  style: String, // "image"
+  href: String, // "link"
+});
+
+const CardSchema = new Schema({ p: [CardParagraphSchema] });
+
 const ParagraphSchema = new Schema({
   type: String,
   sentences: [String], // "typing"
@@ -23,6 +40,7 @@ const ParagraphSchema = new Schema({
   alt: String, // "image"
   style: String, // "image"
   href: String, // "link"
+  cards: [CardSchema],
 });
 
 const PageSchema = new Schema({

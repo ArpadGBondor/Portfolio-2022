@@ -2,13 +2,14 @@ import React from 'react';
 import Typing from './Typing';
 import Contacts from './Contacts';
 import Message from './Message';
-import { Typography, Button, useTheme, Box } from '@mui/material';
+import { Grid2, Typography, Button, useTheme, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../sections/SectionHeading';
 
 function Paragraph({ p }) {
   const navigate = useNavigate();
   const theme = useTheme();
+
   if (typeof p !== 'object')
     return <Typography>Paragraph not implemented.</Typography>;
   switch (p.type) {
@@ -33,7 +34,127 @@ function Paragraph({ p }) {
         </Typography>
       );
     case 'heading':
-      return <SectionHeading text={p.text} variant="h4" />;
+      return (
+        <Box sx={{ marginBottom: '0.5rem' }}>
+          <SectionHeading text={p.text} variant="h4" />
+        </Box>
+      );
+
+    case 'cards-4':
+      return (
+        <Grid2 container alignItems="stretch" justifyContent="start">
+          {p.cards.map((card) => (
+            <Grid2
+              item
+              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                borderColor: theme.palette.primary.main,
+                borderWidth: '1px 5px 5px 1px',
+                borderStyle: 'solid',
+                borderRadius: '15px',
+                padding: '1rem',
+              }}
+            >
+              <Box
+                sx={{
+                  borderColor: theme.palette.primary.main,
+                  borderWidth: '2px',
+                  borderStyle: 'solid',
+                  borderRadius: '15px',
+                  padding: '1rem',
+                  height: '100%',
+                  transition: 'transform 0.2s ease',
+                  transformOrigin: 'center',
+                  '&:hover': {
+                    transform: 'scale(1.1)',
+                    zIndex: 10,
+                  },
+                }}
+              >
+                {card.p.map((p) => (
+                  <Paragraph p={p} />
+                ))}
+              </Box>
+            </Grid2>
+          ))}
+        </Grid2>
+      );
+    case 'cards-3':
+      return (
+        <Grid2 container alignItems="stretch" justifyContent="start">
+          {p.cards.map((card) => (
+            <Grid2
+              item
+              size={{ xs: 12, sm: 6, lg: 4 }}
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                padding: '1rem',
+              }}
+            >
+              <Box
+                sx={{
+                  borderColor: theme.palette.primary.main,
+                  borderWidth: '1px 5px 5px 1px',
+                  borderStyle: 'solid',
+                  borderRadius: '15px',
+                  padding: '1rem 2rem',
+                  height: '100%',
+                  transition: 'transform 0.2s ease',
+                  transformOrigin: 'center',
+                  '&:hover': {
+                    transform: 'scale(1.1)',
+                    zIndex: 10,
+                  },
+                }}
+              >
+                {card.p.map((p) => (
+                  <Paragraph p={p} />
+                ))}
+              </Box>
+            </Grid2>
+          ))}
+        </Grid2>
+      );
+    case 'cards-2':
+      return (
+        <Grid2 container alignItems="stretch" justifyContent="start">
+          {p.cards.map((card) => (
+            <Grid2
+              item
+              size={{ xs: 12, md: 6 }}
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                padding: '1rem 1rem',
+              }}
+            >
+              <Box
+                sx={{
+                  borderColor: theme.palette.primary.main,
+                  borderWidth: '1px 5px 5px 1px',
+                  borderStyle: 'solid',
+                  borderRadius: '15px',
+                  padding: '1rem 2rem',
+                  height: '100%',
+                  transition: 'transform 0.2s ease',
+                  transformOrigin: 'center',
+                  '&:hover': {
+                    transform: 'scale(1.1)',
+                  },
+                  zIndex: 10,
+                }}
+              >
+                {card.p.map((p) => (
+                  <Paragraph p={p} />
+                ))}
+              </Box>
+            </Grid2>
+          ))}
+        </Grid2>
+      );
     case 'badges':
       return (
         <Box
