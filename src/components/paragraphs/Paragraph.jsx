@@ -2,9 +2,10 @@ import React from 'react';
 import Typing from './Typing';
 import Contacts from './Contacts';
 import Message from './Message';
-import { Grid2, Typography, Button, useTheme, Box } from '@mui/material';
+import { Typography, Button, useTheme, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../sections/SectionHeading';
+import Cards from './Cards';
 
 function Paragraph({ p }) {
   const navigate = useNavigate();
@@ -39,121 +40,37 @@ function Paragraph({ p }) {
           <SectionHeading text={p.text} variant="h4" />
         </Box>
       );
-
-    case 'cards-4':
+    case 'cards-2':
       return (
-        <Grid2 container alignItems="stretch" justifyContent="start">
-          {p.cards.map((card) => (
-            <Grid2
-              item
-              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                borderColor: theme.palette.primary.main,
-                borderWidth: '1px 5px 5px 1px',
-                borderStyle: 'solid',
-                borderRadius: '15px',
-                padding: '1rem',
-              }}
-            >
-              <Box
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  borderWidth: '2px',
-                  borderStyle: 'solid',
-                  borderRadius: '15px',
-                  padding: '1rem',
-                  height: '100%',
-                  transition: 'transform 0.2s ease',
-                  transformOrigin: 'center',
-                  '&:hover': {
-                    transform: 'scale(1.1)',
-                    zIndex: 10,
-                  },
-                }}
-              >
-                {card.p.map((p) => (
-                  <Paragraph p={p} />
-                ))}
-              </Box>
-            </Grid2>
-          ))}
-        </Grid2>
+        <Cards
+          cards={p.cards}
+          gridSize={{ xs: 12, md: 6 }}
+          outerSx={{ padding: '1rem' }}
+          hoverShadow={`5px 5px 5px 5px ${theme.palette.primary.main}`}
+        />
       );
     case 'cards-3':
       return (
-        <Grid2 container alignItems="stretch" justifyContent="start">
-          {p.cards.map((card) => (
-            <Grid2
-              item
-              size={{ xs: 12, sm: 6, lg: 4 }}
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                padding: '1rem',
-              }}
-            >
-              <Box
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  borderWidth: '1px 5px 5px 1px',
-                  borderStyle: 'solid',
-                  borderRadius: '15px',
-                  padding: '1rem 2rem',
-                  height: '100%',
-                  transition: 'transform 0.2s ease',
-                  transformOrigin: 'center',
-                  '&:hover': {
-                    transform: 'scale(1.1)',
-                    zIndex: 10,
-                  },
-                }}
-              >
-                {card.p.map((p) => (
-                  <Paragraph p={p} />
-                ))}
-              </Box>
-            </Grid2>
-          ))}
-        </Grid2>
+        <Cards
+          cards={p.cards}
+          gridSize={{ xs: 12, sm: 6, lg: 4 }}
+          outerSx={{ padding: '1rem' }}
+          hoverShadow={`5px 5px 5px 1px ${
+            theme.palette.mode === 'light'
+              ? '#0007'
+              : theme.palette.primary.main
+          }`}
+        />
       );
-    case 'cards-2':
+    case 'cards-4':
       return (
-        <Grid2 container alignItems="stretch" justifyContent="start">
-          {p.cards.map((card) => (
-            <Grid2
-              item
-              size={{ xs: 12, md: 6 }}
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                padding: '1rem 1rem',
-              }}
-            >
-              <Box
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  borderWidth: '1px 5px 5px 1px',
-                  borderStyle: 'solid',
-                  borderRadius: '15px',
-                  padding: '1rem 2rem',
-                  height: '100%',
-                  transition: 'transform 0.2s ease',
-                  transformOrigin: 'center',
-                  '&:hover': {
-                    transform: 'scale(1.1)',
-                  },
-                  zIndex: 10,
-                }}
-              >
-                {card.p.map((p) => (
-                  <Paragraph p={p} />
-                ))}
-              </Box>
-            </Grid2>
-          ))}
-        </Grid2>
+        <Cards
+          cards={p.cards}
+          gridSize={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+          outerSx={{ padding: '1rem' }}
+          innerSx={{ padding: '1rem' }}
+          hoverShadow={`5px 5px 5px 5px ${theme.palette.primary.main}`}
+        />
       );
     case 'badges':
       return (
@@ -161,13 +78,13 @@ function Paragraph({ p }) {
           sx={{
             display: 'flex',
             width: '100%',
-            marginBottom: '0.5rem',
             justifyContent: 'center',
             alignItems: 'center',
             columnGap: '1rem',
             flexWrap: 'wrap',
+            marginBottom: '0.5rem',
           }}
-          variant="p"
+          variant="div"
         >
           {p.badges.map((badge, idx) => (
             <span key={idx} class="skills-container">
@@ -179,6 +96,7 @@ function Paragraph({ p }) {
                   height: { xs: '1.5rem', md: '2rem' },
                   width: 'auto',
                   borderRadius: { xs: '0.75rem', md: '1rem' },
+                  border: `2px solid ${theme.palette.primary.main}`,
                 }}
               />
             </span>
