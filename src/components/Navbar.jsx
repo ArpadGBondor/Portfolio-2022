@@ -20,6 +20,7 @@ import {
   FaSun,
   FaHome,
   FaListAlt,
+  FaCode,
   /*FaFileAlt,*/ FaUserAlt,
 } from 'react-icons/fa';
 import bootstrapColors from '../constants/colors';
@@ -49,11 +50,6 @@ function Navbar() {
     icon: FaHome,
     color: bootstrapColors.blue,
   });
-  // buttonList.push({
-  //     text: 'CV',
-  //     onClick: () => navigate('/cv'),
-  //     icon: FaFileAlt,
-  // });
   buttonList.push({
     text: 'My Journey',
     onClick: () => navigate('/introduction'),
@@ -65,6 +61,12 @@ function Navbar() {
     onClick: () => navigate('/projects'),
     icon: FaListAlt,
     color: bootstrapColors.red,
+  });
+  buttonList.push({
+    text: 'Skills',
+    onClick: () => navigate('/skills'),
+    icon: FaCode,
+    color: theme === 'light' ? bootstrapColors.white : bootstrapColors.black,
   });
   if (theme === 'light') {
     buttonList.push({

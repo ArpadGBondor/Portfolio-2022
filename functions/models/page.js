@@ -10,7 +10,7 @@ const BadgeSchema = new Schema({
   alt: String,
 });
 
-const CardParagraphSchema = new Schema({
+const BaseParagraphSchema = new Schema({
   type: String,
   sentences: [String], // "typing"
   badges: [BadgeSchema],
@@ -25,7 +25,12 @@ const CardParagraphSchema = new Schema({
   href: String, // "link"
 });
 
-const CardSchema = new Schema({ p: [CardParagraphSchema] });
+const CardSchema = new Schema({ p: [BaseParagraphSchema] });
+
+const StatisticsSchema = new Schema({
+  label: String,
+  value: String,
+});
 
 const ParagraphSchema = new Schema({
   type: String,
@@ -41,6 +46,10 @@ const ParagraphSchema = new Schema({
   style: String, // "image"
   href: String, // "link"
   cards: [CardSchema],
+  statistics: {
+    left: [BaseParagraphSchema],
+    right: [StatisticsSchema],
+  },
 });
 
 const PageSchema = new Schema({

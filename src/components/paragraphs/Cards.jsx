@@ -3,7 +3,7 @@ import { Box, useTheme } from '@mui/material';
 import Grid2 from '@mui/material/Grid2';
 import Paragraph from './Paragraph';
 
-function Cards({ cards, gridSize, outerSx = {}, innerSx = {}, hoverShadow }) {
+function Cards({ cards, gridSize }) {
   const theme = useTheme();
 
   return (
@@ -20,15 +20,15 @@ function Cards({ cards, gridSize, outerSx = {}, innerSx = {}, hoverShadow }) {
           size={gridSize}
           justifyContent="center"
           alignItems="center"
-          sx={outerSx}
+          sx={{ padding: '1rem' }}
         >
           <Box
             sx={{
               borderColor: theme.palette.primary.main,
-              borderWidth: '1px 5px 5px 1px',
+              borderWidth: '1px 4px 4px 1px',
               borderStyle: 'solid',
               borderRadius: '15px',
-              padding: '1rem 2rem',
+              padding: '1rem',
               height: '100%',
               transition: 'transform 0.2s ease',
               transformOrigin: 'center',
@@ -37,10 +37,12 @@ function Cards({ cards, gridSize, outerSx = {}, innerSx = {}, hoverShadow }) {
               '&:hover': {
                 transform: 'scale(1.1)',
                 zIndex: 10,
-                borderWidth: '1px',
-                boxShadow: hoverShadow,
+                boxShadow: `3px 3px 10px 5px ${
+                  theme.palette.mode === 'light'
+                    ? '#0007'
+                    : theme.palette.primary.main
+                }`,
               },
-              ...innerSx,
             }}
           >
             {card.p.map((p, i) => (

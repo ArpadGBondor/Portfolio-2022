@@ -86,47 +86,49 @@ function Section({ section, sectionIndex }) {
               color: theme === 'light' ? 'black' : 'lightgrey',
             }}
           >
-            <Box
-              sx={{
-                margin: '1rem',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <SectionHeading text={section.h2} />
-              {section.small && (
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  <hr
-                    style={{
-                      height: '0',
-                      width: '2rem',
-                      borderColor: sectionTheme.palette.primary.main,
+            {(section.h2 || section.small) && (
+              <Box
+                sx={{
+                  margin: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
+                {section.h2 && <SectionHeading text={section.h2} />}
+                {section.small && (
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
                     }}
-                  />
-                  <Typography
-                    sx={{ marginX: '1rem', background: 'inherit' }}
-                    variant="body1"
                   >
-                    {section.small}
-                  </Typography>
-                  <hr
-                    style={{
-                      height: '0',
-                      width: '2rem',
-                      borderColor: sectionTheme.palette.primary.main,
-                    }}
-                  />
-                </Box>
-              )}
-            </Box>
+                    <hr
+                      style={{
+                        height: '0',
+                        width: '2rem',
+                        borderColor: sectionTheme.palette.primary.main,
+                      }}
+                    />
+                    <Typography
+                      sx={{ marginX: '1rem', background: 'inherit' }}
+                      variant="body1"
+                    >
+                      {section.small}
+                    </Typography>
+                    <hr
+                      style={{
+                        height: '0',
+                        width: '2rem',
+                        borderColor: sectionTheme.palette.primary.main,
+                      }}
+                    />
+                  </Box>
+                )}
+              </Box>
+            )}
 
             <Box sx={{ width: '100%' }}>
               {section.img_src && (

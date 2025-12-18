@@ -62,6 +62,13 @@ async function handleGetRequest(event, context, callback) {
         };
       };
 
+      const statisticsMap = (s) => {
+        return {
+          label: s.label,
+          value: s.value,
+        };
+      };
+
       const paragraphMap = (p) => ({
         type: p.type ?? '',
         sentences: p.sentences,
@@ -76,6 +83,10 @@ async function handleGetRequest(event, context, callback) {
         href: p.href ?? '',
         badges: (p.badges ?? []).map(badgeMap),
         cards: (p.cards ?? []).map(cardMap),
+        statistics: {
+          left: (p.statistics?.left ?? []).map(paragraphMap),
+          right: (p.statistics?.right ?? []).map(statisticsMap),
+        },
       });
 
       const contentMap = (content) => ({

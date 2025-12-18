@@ -6,6 +6,7 @@ import { Typography, Button, useTheme, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../sections/SectionHeading';
 import Cards from './Cards';
+import Statistics from './Statistics';
 
 function Paragraph({ p }) {
   const navigate = useNavigate();
@@ -20,6 +21,14 @@ function Paragraph({ p }) {
       return <Contacts />;
     case 'typing':
       return <Typing sentences={p.sentences} />;
+    case 'statistics':
+      return (
+        <Statistics
+          left={p.statistics.left}
+          stats={p.statistics.right}
+          statsTitle={p.text}
+        />
+      );
     case 'text':
       return (
         <Typography
@@ -41,36 +50,12 @@ function Paragraph({ p }) {
         </Box>
       );
     case 'cards-2':
-      return (
-        <Cards
-          cards={p.cards}
-          gridSize={{ xs: 12, md: 6 }}
-          outerSx={{ padding: '1rem' }}
-          hoverShadow={`5px 5px 5px 5px ${theme.palette.primary.main}`}
-        />
-      );
+      return <Cards cards={p.cards} gridSize={{ xs: 12, md: 6 }} />;
     case 'cards-3':
-      return (
-        <Cards
-          cards={p.cards}
-          gridSize={{ xs: 12, sm: 6, lg: 4 }}
-          outerSx={{ padding: '1rem' }}
-          hoverShadow={`5px 5px 5px 1px ${
-            theme.palette.mode === 'light'
-              ? '#0007'
-              : theme.palette.primary.main
-          }`}
-        />
-      );
+      return <Cards cards={p.cards} gridSize={{ xs: 12, sm: 6, lg: 4 }} />;
     case 'cards-4':
       return (
-        <Cards
-          cards={p.cards}
-          gridSize={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-          outerSx={{ padding: '1rem' }}
-          innerSx={{ padding: '1rem' }}
-          hoverShadow={`5px 5px 5px 5px ${theme.palette.primary.main}`}
-        />
+        <Cards cards={p.cards} gridSize={{ xs: 12, sm: 6, md: 4, lg: 3 }} />
       );
     case 'badges':
       return (
