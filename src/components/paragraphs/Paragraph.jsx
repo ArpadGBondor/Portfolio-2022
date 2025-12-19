@@ -69,10 +69,9 @@ function Paragraph({ p }) {
             flexWrap: 'wrap',
             marginBottom: '0.5rem',
           }}
-          variant="div"
         >
           {p.badges.map((badge, idx) => (
-            <span key={idx} class="skills-container">
+            <span key={idx} className="skills-container">
               <Box
                 component="img"
                 src={badge.url}
@@ -89,21 +88,19 @@ function Paragraph({ p }) {
         </Box>
       );
     case 'link':
-      if (p.href.includes('http')) {
+      const isExternal = /^https?:\/\//.test(p.href);
+      if (isExternal) {
         return (
-          <a
+          <Button
+            component="a"
             href={p.href}
-            style={{ textDecoration: 'none' }}
             target="_blank"
             rel="noreferrer"
+            sx={{ margin: '1rem auto', display: 'block' }}
+            variant="contained"
           >
-            <Button
-              sx={{ margin: '1rem auto', display: 'block' }}
-              variant="contained"
-            >
-              {p.text}
-            </Button>
-          </a>
+            {p.text}
+          </Button>
         );
       } else {
         return (
@@ -126,9 +123,13 @@ function Paragraph({ p }) {
       if (p.maxHeight) style.maxHeight = p.maxHeight;
       if (p.maxWidth) style.maxWidth = p.maxWidth;
       if (p.style === 'circular') style.borderRadius = '50%';
-      return <img style={style} src={p.src} alt={p.alt} />;
+      return <img style={style} src={p.src} alt={p.alt || ''} loading="lazy" />;
     default:
-      return <Typography variant="p">Paragraph not implemented.</Typography>;
+      return (
+        <Typography variant="body1" component="p">
+          Paragraph not implemented.
+        </Typography>
+      );
   }
 }
 

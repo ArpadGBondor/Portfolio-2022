@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import { Typography, useTheme } from '@mui/material';
+import { Typography } from '@mui/material';
 
 function Typing({ sentences }) {
-  const theme = useTheme();
-  const sequence = [];
-  sentences.forEach((s) => {
-    sequence.push(s);
-    sequence.push(2000);
-    sequence.push('');
-    sequence.push(1500);
-  });
+  const sequence = useMemo(
+    () => sentences.flatMap((s) => [s, 2000, '', 1500]),
+    [sentences]
+  );
   return (
-    <Typography sx={{ color: theme.palette.primary.main }} variant="h4">
+    <Typography
+      color="primary.main"
+      variant="h4"
+      style={{ width: '100%', textAlign: 'center' }}
+    >
       <TypeAnimation
         sequence={sequence}
         wrapper="span"
