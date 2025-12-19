@@ -13,12 +13,7 @@ function Typing({ sentences }) {
       variant="h4"
       style={{ width: '100%', textAlign: 'center' }}
     >
-      <TypeAnimation
-        sequence={sequence}
-        wrapper="span"
-        cursor={true}
-        repeat={Infinity}
-      />
+      <TypeAnimation sequence={sequence} wrapper="p" cursor repeat={Infinity} />
     </Typography>
   );
 }
