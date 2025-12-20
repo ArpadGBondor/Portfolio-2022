@@ -17,7 +17,6 @@ const Message = () => {
   return (
     <Grid2 container alignItems="center" justifyContent="center">
       <Grid2
-        item
         size={{ xs: 12, md: 6 }}
         justifyContent="center"
         alignItems="center"

@@ -31,13 +31,19 @@ export default function CustomCursor() {
     [theme.palette.mode]
   );
 
+  const circlesRef = useRef(circles);
   const refs = useRef([]);
   const mouse = useRef({ x: 0, y: 0 });
   const positions = useRef([]);
   const isInside = useRef(true);
-  if (positions.current.length !== circles.length) {
-    positions.current = circles.map(() => ({ x: 0, y: 0 }));
-  }
+
+  useEffect(() => {
+    if (positions.current.length !== circles.length) {
+      positions.current = circles.map(() => ({ x: 0, y: 0 }));
+    }
+    circlesRef.current = circles;
+  }, [circles]);
+
   useEffect(() => {
     const move = (e) => {
       mouse.current.x = e.clientX;
@@ -57,7 +63,7 @@ export default function CustomCursor() {
     window.addEventListener('mouseout', leave);
 
     const animate = () => {
-      circles.forEach((circle, i) => {
+      circlesRef.current.forEach((circle, i) => {
         const pos = positions.current[i];
         const target = i === 0 ? mouse.current : positions.current[i - 1];
 
@@ -83,11 +89,11 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', enter);
       window.removeEventListener('mouseout', leave);
     };
-  }, [circles]);
+  }, []);
 
   return (
     <>
-      {circles.map((circle, i) => (
+      {circlesRef.current.map((circle, i) => (
         <Box
           key={i}
           ref={(el) => (refs.current[i] = el)}

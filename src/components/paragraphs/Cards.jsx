@@ -16,7 +16,6 @@ function Cards({ cards, gridSize }) {
       {cards.map((card, idx) => (
         <Grid2
           key={idx}
-          item
           size={gridSize}
           justifyContent="center"
           alignItems="center"

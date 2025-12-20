@@ -15,7 +15,7 @@ function Statistics({ left, stats, statsTitle }) {
       sx={{ marginBottom: '2rem' }}
     >
       {/* LEFT SIDE – CONTENT */}
-      <Grid2 item size={{ xs: 12, sm: 8, md: 6 }} sx={{ marginX: 'auto' }}>
+      <Grid2 size={{ xs: 12, sm: 8, md: 6 }} sx={{ marginX: 'auto' }}>
         <Box
           sx={{
             padding: '1rem',
@@ -31,7 +31,7 @@ function Statistics({ left, stats, statsTitle }) {
       </Grid2>
 
       {/* RIGHT SIDE – STATISTICS */}
-      <Grid2 item size={{ xs: 12, md: 6, lg: 4 }}>
+      <Grid2 size={{ xs: 12, md: 6, lg: 4 }}>
         <Box
           sx={{
             position: 'relative',
@@ -79,7 +79,6 @@ function Statistics({ left, stats, statsTitle }) {
             {stats.map((stat, idx) => (
               <Grid2
                 key={idx}
-                item
                 size={{ xs: 12, sm: 6, md: 12 }}
                 sx={{
                   borderRight:

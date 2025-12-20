@@ -15,7 +15,6 @@ const Contacts = () => {
       sx={{ textAlign: 'center' }}
     >
       <Grid2
-        item
         size={{ xs: 12, md: 6 }}
         justifyContent="center"
         alignItems="center"
@@ -37,7 +36,6 @@ const Contacts = () => {
         ))}
       </Grid2>
       <Grid2
-        item
         size={{ xs: 12, md: 6 }}
         justifyContent="center"
         alignItems="center"
