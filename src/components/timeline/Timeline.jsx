@@ -42,7 +42,11 @@ function Timeline({ content, hero }) {
                 ? bootstrapColors.yellow
                 : bootstrapColors.orange
             } solid 0.2rem`,
-            left: 'calc(50% - 0.125rem)',
+            left: {
+              xs: `calc(100% - 1.25rem)`,
+              sm: `calc(100% - 1.75rem)`,
+              md: 'calc(50% - 0.1rem)',
+            },
             top: '0',
           }}
         />

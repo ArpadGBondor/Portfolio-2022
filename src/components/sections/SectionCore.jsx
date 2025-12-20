@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import Paragraph from '../paragraphs/Paragraph';
 import SectionHeading from './SectionHeading';
 
 function SectionCore({ section, alignImage = 'right' }) {
+  const theme = useTheme();
   return (
     <>
       {(section.h2 || section.small) && (
@@ -17,9 +18,35 @@ function SectionCore({ section, alignImage = 'right' }) {
         >
           {section.h2 && <SectionHeading text={section.h2} />}
           {section.small && (
-            <Typography variant="body1" sx={{ mt: 0.5 }}>
-              {section.small}
-            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <hr
+                style={{
+                  height: '0',
+                  width: '2rem',
+                  borderColor: theme.palette.primary.main,
+                }}
+              />
+              <Typography
+                sx={{ marginX: '1rem', background: 'inherit' }}
+                variant="body1"
+              >
+                {section.small}
+              </Typography>
+              <hr
+                style={{
+                  height: '0',
+                  width: '2rem',
+                  borderColor: theme.palette.primary.main,
+                }}
+              />
+            </Box>
           )}
         </Box>
       )}
