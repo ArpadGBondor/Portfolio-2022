@@ -57,16 +57,16 @@ function Navbar() {
     color: bootstrapColors.green,
   });
   buttonList.push({
+    text: 'Tech Stack',
+    onClick: () => navigate('/skills'),
+    icon: FaCode,
+    color: theme === 'light' ? bootstrapColors.white : bootstrapColors.black,
+  });
+  buttonList.push({
     text: 'Projects',
     onClick: () => navigate('/projects'),
     icon: FaListAlt,
     color: bootstrapColors.red,
-  });
-  buttonList.push({
-    text: 'Skills',
-    onClick: () => navigate('/skills'),
-    icon: FaCode,
-    color: theme === 'light' ? bootstrapColors.white : bootstrapColors.black,
   });
   if (theme === 'light') {
     buttonList.push({

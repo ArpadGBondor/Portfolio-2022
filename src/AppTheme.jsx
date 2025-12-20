@@ -7,6 +7,7 @@ import {
 } from '@mui/material/styles';
 import { useThemeContext } from './context/theme/themeContext';
 import bootstrapColors from './constants/colors';
+import CustomCursor from './components/CustomCursor';
 
 function AppTheme({ children }) {
   const { theme } = useThemeContext();
@@ -27,6 +28,7 @@ function AppTheme({ children }) {
   );
   return (
     <ThemeProvider theme={newTheme}>
+      <CustomCursor />
       <CssBaseline />
       {children}
     </ThemeProvider>
