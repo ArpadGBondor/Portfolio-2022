@@ -96,7 +96,13 @@ function Paragraph({ p }) {
             href={p.href}
             target="_blank"
             rel="noreferrer"
-            sx={{ margin: '1rem auto', display: 'block' }}
+            sx={{
+              display: 'block',
+              mx: 'auto', // horizontal centering
+              mt: 2, // top margin
+              mb: 2, // bottom margin
+              width: 'fit-content', // shrink to fit content
+            }}
             variant="contained"
           >
             {p.text}
@@ -105,7 +111,13 @@ function Paragraph({ p }) {
       } else {
         return (
           <Button
-            sx={{ margin: '1rem auto', display: 'block' }}
+            sx={{
+              display: 'block',
+              mx: 'auto', // horizontal centering
+              mt: 2, // top margin
+              mb: 2, // bottom margin
+              width: 'fit-content', // shrink to fit content
+            }}
             variant="contained"
             onClick={() => navigate(p.href)}
           >
