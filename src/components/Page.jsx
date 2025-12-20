@@ -4,6 +4,7 @@ import { usePagesContext } from '../context/pages/pagesContext';
 
 import Hero from './Hero';
 import Section from './sections/Section';
+import Timeline from './timeline/Timeline';
 import { Box } from '@mui/material';
 
 function Page({ page, pageId }) {
@@ -18,10 +19,13 @@ function Page({ page, pageId }) {
   return (
     <Box>
       <Hero hero={page.hero} />
-
-      {page.content.map((section, idx) => (
-        <Section section={section} key={idx} sectionIndex={idx} />
-      ))}
+      {page.page_type === 'timeline' ? (
+        <Timeline content={page.content} hero={page.hero} />
+      ) : (
+        page.content.map((section, idx) => (
+          <Section section={section} key={idx} sectionIndex={idx} />
+        ))
+      )}
     </Box>
   );
 }
