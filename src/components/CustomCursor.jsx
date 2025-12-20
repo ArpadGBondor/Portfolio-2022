@@ -93,7 +93,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {circlesRef.current.map((circle, i) => (
+      {circles.map((circle, i) => (
         <Box
           key={i}
           ref={(el) => (refs.current[i] = el)}
