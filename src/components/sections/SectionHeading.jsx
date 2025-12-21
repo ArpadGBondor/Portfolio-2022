@@ -2,7 +2,11 @@ import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-export default function SectionHeading({ text, variant = 'h2' }) {
+export default function SectionHeading({
+  text,
+  variant = 'h3',
+  justifyContent = 'center',
+}) {
   const theme = useTheme();
 
   // Split text into words
@@ -13,7 +17,7 @@ export default function SectionHeading({ text, variant = 'h2' }) {
       variant={variant}
       sx={{
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent,
         flexWrap: 'wrap',
         gap: '0.25em',
       }}

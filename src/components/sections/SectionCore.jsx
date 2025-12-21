@@ -34,7 +34,11 @@ function SectionCore({ section, alignImage = 'right' }) {
                 }}
               />
               <Typography
-                sx={{ marginX: '1rem', background: 'inherit' }}
+                sx={{
+                  marginX: '1rem',
+                  background: 'inherit',
+                  textAlign: 'center',
+                }}
                 variant="body1"
               >
                 {section.small}

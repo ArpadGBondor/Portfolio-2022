@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../sections/SectionHeading';
 import Cards from './Cards';
 import Statistics from './Statistics';
+import Icon from '../Icon';
 
 function Paragraph({ p }) {
   const navigate = useNavigate();
@@ -46,7 +47,11 @@ function Paragraph({ p }) {
     case 'heading':
       return (
         <Box sx={{ marginBottom: '0.5rem' }}>
-          <SectionHeading text={p.text} variant="h4" />
+          <SectionHeading
+            text={p.text}
+            variant="h4"
+            justifyContent={p.style ?? 'start'}
+          />
         </Box>
       );
     case 'cards-2':
@@ -63,9 +68,9 @@ function Paragraph({ p }) {
           sx={{
             display: 'flex',
             width: '100%',
-            justifyContent: 'center',
+            justifyContent: 'start',
             alignItems: 'center',
-            columnGap: '1rem',
+            columnGap: '0.5rem',
             flexWrap: 'wrap',
             marginBottom: '0.5rem',
           }}
@@ -77,7 +82,7 @@ function Paragraph({ p }) {
                 src={badge.url}
                 alt={badge.alt}
                 sx={{
-                  height: { xs: '1.5rem', md: '2rem' },
+                  height: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
                   width: 'auto',
                   borderRadius: { xs: '0.75rem', md: '1rem' },
                   border: `2px solid ${theme.palette.primary.main}`,
@@ -136,6 +141,18 @@ function Paragraph({ p }) {
       if (p.maxWidth) style.maxWidth = p.maxWidth;
       if (p.style === 'circular') style.borderRadius = '50%';
       return <img style={style} src={p.src} alt={p.alt || ''} loading="lazy" />;
+    case 'icon':
+      return (
+        <Box
+          sx={{
+            marginBottom: '0.5rem',
+            color: theme.palette.primary.main,
+            fontSize: '2rem',
+          }}
+        >
+          <Icon fontAwsomeCode={p.src} />
+        </Box>
+      );
     default:
       return (
         <Typography variant="body1" component="p">
