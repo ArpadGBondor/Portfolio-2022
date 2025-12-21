@@ -37,7 +37,7 @@ function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
             padding: '1rem 2rem',
             marginLeft: sectionIndex % 2 === 0 ? '0' : 'auto',
             marginRight: sectionIndex % 2 !== 0 ? '0' : 'auto',
-            marginTop: { xs: '0', md: '-11rem' },
+            marginTop: { xs: '0', md: '-19rem' },
             position: 'relative',
           }}
         >
@@ -52,10 +52,10 @@ function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
                     ? `transparent transparent transparent ${colorForSection}`
                     : `transparent ${colorForSection} transparent transparent`,
               },
-              borderWidth: '2rem',
+              borderWidth: '1rem 2rem',
               borderStyle: 'solid',
               position: 'absolute',
-              top: '3rem',
+              top: '2rem',
               right: {
                 xs: '-2rem',
                 md: sectionIndex % 2 === 0 ? '-2rem' : 'auto',

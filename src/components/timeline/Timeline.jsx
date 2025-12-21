@@ -28,7 +28,7 @@ function Timeline({ content, hero }) {
       <Container
         sx={{
           position: 'relative',
-          paddingTop: { xs: '1', md: '12rem' },
+          paddingTop: { xs: '1', md: '19rem' },
           paddingBottom: '1rem',
         }}
       >
@@ -52,6 +52,7 @@ function Timeline({ content, hero }) {
         />
         {content.map((section, sectionIndex) => (
           <TimelineWrapper
+            key={sectionIndex}
             sectionIndex={sectionIndex}
             backgroundImg={section.background_img_url}
           >

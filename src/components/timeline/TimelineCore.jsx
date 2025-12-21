@@ -9,7 +9,7 @@ function TimelineCore({ section, alignImage = 'right' }) {
       {(section.h2 || section.small) && (
         <Box
           sx={{
-            margin: '1rem',
+            margin: '0 1rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

@@ -5,6 +5,11 @@ import bootstrapColors from '../constants/colors';
 export default function CustomCursor() {
   const theme = useTheme();
 
+  const isTouchDevice = useMemo(() => {
+    if (typeof window === 'undefined') return true;
+    return window.matchMedia('(pointer: coarse)').matches;
+  }, []);
+
   const circles = useMemo(
     () => [
       {
@@ -45,6 +50,7 @@ export default function CustomCursor() {
   }, [circles]);
 
   useEffect(() => {
+    if (isTouchDevice) return;
     const move = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
@@ -89,8 +95,9 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', enter);
       window.removeEventListener('mouseout', leave);
     };
-  }, []);
+  }, [isTouchDevice]);
 
+  if (isTouchDevice) return null;
   return (
     <>
       {circles.map((circle, i) => (
