@@ -7,7 +7,7 @@ function Section({ section, sectionIndex }) {
       sectionIndex={sectionIndex}
       backgroundImg={section.background_img_url}
     >
-      <SectionCore section={section} />
+      <SectionCore section={section} sectionIndex={sectionIndex} />
     </SectionWrapper>
   );
 }

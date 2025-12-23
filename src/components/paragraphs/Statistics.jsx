@@ -3,8 +3,9 @@ import { Box, Typography, useTheme } from '@mui/material';
 import Grid2 from '@mui/material/Grid2';
 import Paragraph from './Paragraph';
 
-function Statistics({ left, stats, statsTitle }) {
+function Statistics({ left, stats, statsTitle, sectionIndex }) {
   const theme = useTheme();
+  const isReversedDesktop = sectionIndex % 2 === 1;
 
   return (
     <Grid2
@@ -15,7 +16,16 @@ function Statistics({ left, stats, statsTitle }) {
       sx={{ marginBottom: '2rem' }}
     >
       {/* LEFT SIDE – CONTENT */}
-      <Grid2 size={{ xs: 12, sm: 8, md: 6 }} sx={{ marginX: 'auto' }}>
+      <Grid2
+        size={{ xs: 12, sm: 8, md: 6 }}
+        sx={{
+          marginX: 'auto',
+          order: {
+            xs: 1,
+            md: isReversedDesktop ? 2 : 1,
+          },
+        }}
+      >
         <Box
           sx={{
             padding: '1rem',
@@ -31,7 +41,15 @@ function Statistics({ left, stats, statsTitle }) {
       </Grid2>
 
       {/* RIGHT SIDE – STATISTICS */}
-      <Grid2 size={{ xs: 12, md: 6, lg: 4 }}>
+      <Grid2
+        size={{ xs: 12, md: 6, lg: 4 }}
+        sx={{
+          order: {
+            xs: 2,
+            md: isReversedDesktop ? 1 : 2,
+          },
+        }}
+      >
         <Box
           sx={{
             position: 'relative',

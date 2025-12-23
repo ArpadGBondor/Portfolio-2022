@@ -9,7 +9,7 @@ import Cards from './Cards';
 import Statistics from './Statistics';
 import Icon from '../Icon';
 
-function Paragraph({ p }) {
+function Paragraph({ p, sectionIndex }) {
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -28,6 +28,7 @@ function Paragraph({ p }) {
           left={p.statistics.left}
           stats={p.statistics.right}
           statsTitle={p.text}
+          sectionIndex={sectionIndex}
         />
       );
     case 'text':

@@ -3,7 +3,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import Paragraph from '../paragraphs/Paragraph';
 import SectionHeading from './SectionHeading';
 
-function SectionCore({ section, alignImage = 'right' }) {
+function SectionCore({ section, sectionIndex, alignImage = 'right' }) {
   const theme = useTheme();
   return (
     <>
@@ -74,7 +74,7 @@ function SectionCore({ section, alignImage = 'right' }) {
         )}
 
         {section.p?.map((p, idx) => (
-          <Paragraph key={idx} p={p} />
+          <Paragraph key={idx} p={p} sectionIndex={sectionIndex} />
         ))}
       </Box>
     </>
