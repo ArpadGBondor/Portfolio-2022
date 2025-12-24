@@ -20,7 +20,7 @@ function Page({ page, pageId }) {
     <Box>
       <Hero hero={page.hero} />
       {page.page_type === 'timeline' ? (
-        <Timeline content={page.content} hero={page.hero} />
+        <Timeline content={page.content} />
       ) : (
         page.content.map((section, idx) => (
           <Section section={section} key={idx} sectionIndex={idx} />

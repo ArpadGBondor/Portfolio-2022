@@ -3,21 +3,33 @@ import { Box, Container } from '@mui/material';
 import { useThemeContext } from '../../context/theme/themeContext';
 import bootstrapColors from '../../constants/colors';
 import TimelineCore from './TimelineCore';
+import ParticlesLayer from '../ParticlesLayer';
 
-function Timeline({ content, hero }) {
+function Timeline({ content }) {
   const { theme } = useThemeContext();
   return (
     <Box
       sx={{
         height: '100%',
         width: '100%',
-        background: `url(${hero.img_url}) center/cover fixed no-repeat, #7777`,
         position: 'relative',
       }}
     >
+      {/* Top rounded bar */}
       <Box
         sx={{
-          backgroundColor: theme === 'light' ? '#D9D9D9DD' : '#212121DD',
+          background: bootstrapColors.green,
+          borderRadius: '1rem',
+          width: '100%',
+          height: '2rem',
+          position: 'absolute',
+          top: '-1rem',
+        }}
+      />
+
+      <Box
+        sx={{
+          backgroundColor: theme === 'light' ? '#D9D9D9' : '#212121',
           position: 'absolute',
           top: '0',
           left: '0',
@@ -25,10 +37,11 @@ function Timeline({ content, hero }) {
           height: '100%',
         }}
       ></Box>
+      <ParticlesLayer sectionIndex="timeline" />
       <Container
         sx={{
           position: 'relative',
-          paddingTop: { xs: '1', md: '19rem' },
+          paddingTop: { xs: '1', md: '20rem' },
           paddingBottom: '1rem',
         }}
       >
