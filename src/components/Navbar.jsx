@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Box,
@@ -34,6 +34,19 @@ function Navbar() {
     disableHysteresis: true,
     threshold: 0,
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        // lg breakpoint in MUI
+        setAnchorElNav(null); // force close mobile menu
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
