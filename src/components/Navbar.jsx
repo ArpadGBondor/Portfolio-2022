@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   AppBar,
   Box,
@@ -11,7 +11,7 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useThemeContext } from '../context/theme/themeContext';
 import {
@@ -55,47 +55,47 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  const buttonList = [];
+  const buttonList = useMemo(() => {
+    const handleNavigate = (path) => () => {
+      setAnchorElNav(null);
+      navigate(path);
+    };
 
-  buttonList.push({
-    text: 'Home',
-    onClick: () => navigate('/'),
-    icon: FaHome,
-    color: bootstrapColors.blue,
-  });
-  buttonList.push({
-    text: 'My Journey',
-    onClick: () => navigate('/introduction'),
-    icon: FaUserAlt,
-    color: bootstrapColors.green,
-  });
-  buttonList.push({
-    text: 'Tech Stack',
-    onClick: () => navigate('/skills'),
-    icon: FaCode,
-    color: theme === 'light' ? bootstrapColors.white : bootstrapColors.black,
-  });
-  buttonList.push({
-    text: 'Projects',
-    onClick: () => navigate('/projects'),
-    icon: FaListAlt,
-    color: bootstrapColors.red,
-  });
-  if (theme === 'light') {
-    buttonList.push({
-      text: 'Change theme',
-      onClick: selectDarkTheme,
-      icon: FaSun,
-      color: bootstrapColors.orange,
-    });
-  } else {
-    buttonList.push({
-      text: 'Change theme',
-      onClick: selectLightTheme,
-      icon: FaMoon,
-      color: bootstrapColors.yellow,
-    });
-  }
+    return [
+      {
+        text: 'Home',
+        onClick: handleNavigate('/'),
+        icon: FaHome,
+        color: bootstrapColors.blue,
+      },
+      {
+        text: 'My Journey',
+        onClick: handleNavigate('/introduction'),
+        icon: FaUserAlt,
+        color: bootstrapColors.green,
+      },
+      {
+        text: 'Tech Stack',
+        onClick: handleNavigate('/skills'),
+        icon: FaCode,
+        color:
+          theme === 'light' ? bootstrapColors.white : bootstrapColors.black,
+      },
+      {
+        text: 'Projects',
+        onClick: handleNavigate('/projects'),
+        icon: FaListAlt,
+        color: bootstrapColors.red,
+      },
+      {
+        text: 'Change theme',
+        onClick: theme === 'light' ? selectDarkTheme : selectLightTheme,
+        icon: theme === 'light' ? FaSun : FaMoon,
+        color:
+          theme === 'light' ? bootstrapColors.orange : bootstrapColors.yellow,
+      },
+    ];
+  }, [theme, navigate, selectDarkTheme, selectLightTheme]);
 
   return (
     <AppBar
@@ -115,6 +115,8 @@ function Navbar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
+            component={Link}
+            to="/"
             sx={{
               flexGrow: 1,
               mr: 2,
@@ -127,7 +129,6 @@ function Navbar() {
             }}
             variant="h5"
             noWrap
-            href="/"
           >
             <span style={{ color: bootstrapColors.blue }}>G</span>abriel's{' '}
             <span style={{ color: bootstrapColors.blue }}>P</span>ortfolio
@@ -135,7 +136,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="open navigation menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
