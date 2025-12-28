@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useThemeContext } from '../../context/theme/themeContext';
 import bootstrapColors from '../../constants/colors';
+import headerSizes from '../../constants/headerSizes';
 
 function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
   const { theme } = useThemeContext();
@@ -23,6 +24,7 @@ function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
           mode: theme,
           primary: { main: colorForSection },
         },
+        typography: { ...headerSizes },
       }),
     [colorForSection, theme]
   );
@@ -69,7 +71,7 @@ function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
           <Box
             sx={{
               background: backgroundImg
-                ? `url(${backgroundImg}) center/cover fixed no-repeat`
+                ? `url(${backgroundImg}) center/cover no-repeat`
                 : colorForSection,
               position: 'relative',
               display: 'flex',

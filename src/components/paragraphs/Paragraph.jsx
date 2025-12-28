@@ -50,7 +50,7 @@ function Paragraph({ p, sectionIndex }) {
         <Box sx={{ marginBottom: '0.5rem' }}>
           <SectionHeading
             text={p.text}
-            variant="h4"
+            variant="h3"
             justifyContent={p.style ?? 'start'}
           />
         </Box>

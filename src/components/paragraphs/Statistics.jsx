@@ -59,7 +59,7 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
           {/* Optional title */}
           {statsTitle && (
             <Typography
-              variant="h6"
+              variant="h3"
               align="center"
               sx={{
                 fontWeight: 'bold',
@@ -115,7 +115,7 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
                 }}
               >
                 <Typography
-                  variant="h4"
+                  variant="h3"
                   sx={{
                     fontWeight: 'bold',
                     color: theme.palette.primary.main,

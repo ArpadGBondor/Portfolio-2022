@@ -3,6 +3,7 @@ import { Box, Container } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useThemeContext } from '../../context/theme/themeContext';
 import bootstrapColors from '../../constants/colors';
+import headerSizes from '../../constants/headerSizes';
 
 function SectionWrapper({ sectionIndex, backgroundImg, children }) {
   const { theme } = useThemeContext();
@@ -23,6 +24,7 @@ function SectionWrapper({ sectionIndex, backgroundImg, children }) {
           mode: theme,
           primary: { main: colorForSection },
         },
+        typography: { ...headerSizes },
       }),
     [colorForSection, theme]
   );
@@ -47,7 +49,7 @@ function SectionWrapper({ sectionIndex, backgroundImg, children }) {
           sx={{
             minHeight: '50vh',
             background: backgroundImg
-              ? `url(${backgroundImg}) center/cover fixed no-repeat`
+              ? `url(${backgroundImg}) center/cover no-repeat`
               : colorForSection,
             position: 'relative',
             display: 'flex',

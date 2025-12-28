@@ -8,6 +8,7 @@ import {
 import { useThemeContext } from './context/theme/themeContext';
 import bootstrapColors from './constants/colors';
 import CustomCursor from './components/CustomCursor';
+import headerSizes from './constants/headerSizes';
 
 function AppTheme({ children }) {
   const { theme } = useThemeContext();
@@ -22,6 +23,7 @@ function AppTheme({ children }) {
               main: bootstrapColors.blue,
             },
           },
+          typography: { ...headerSizes },
         })
       ),
     [theme]

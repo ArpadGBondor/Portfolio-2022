@@ -5,14 +5,19 @@ import Paragraph from './paragraphs/Paragraph';
 import bootstrapColors from '../constants/colors';
 import SectionHeading from './sections/SectionHeading';
 import SpinningCog from './SpinningCog';
+import { useContactsContext } from '../context/contacts/contactsContext';
+import LinkExternal from './LinkExternal';
+import Icon from './Icon';
 
 function Hero({ hero }) {
   const { theme } = useThemeContext();
+  const { name, location, profession, photo, contacts, socials } =
+    useContactsContext();
+
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        background: `url(${hero.img_url}) center/cover fixed no-repeat, #7777`,
+        background: `url(${hero.img_url}) center/cover no-repeat, #7777`,
         position: 'relative',
         paddingBottom: '1rem',
       }}
@@ -25,96 +30,183 @@ function Hero({ hero }) {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          width: '100%',
-          height: '100%',
+          position: 'relative',
+          inset: '0',
           textAlign: 'center',
+          padding: { xs: '6rem 2rem 4rem', md: '8rem 4rem 6rem' },
         }}
       >
         <Container
           sx={{
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
+            flexDirection: { xs: 'column-reverse', md: 'row' },
+            justifyContent: 'stretch',
             alignItems: 'center',
+            gap: { xs: '2rem', md: '2rem' },
           }}
         >
-          <Box>
-            <SpinningCog
-              size="4em"
-              sx={{ marginX: '-3px', color: bootstrapColors.blue }}
-            />
-            <SpinningCog
-              size="4em"
-              sx={{ marginX: '-3px', color: bootstrapColors.green }}
-              reverse
-            />
-            <SpinningCog
-              size="4em"
-              sx={{
-                marginX: '-3px',
-                color:
-                  theme === 'light'
-                    ? bootstrapColors.black
-                    : bootstrapColors.white,
+          <Box
+            sx={{
+              flex: 'none',
+              marginTop: '5rem',
+              borderColor: bootstrapColors.blue,
+              borderWidth: '1px 4px 4px 1px',
+              borderStyle: 'solid',
+              borderRadius: '15px',
+              padding: '1rem 1.5rem',
+              transition: 'transform 0.2s ease',
+              transformOrigin: 'center',
+              background: theme === 'light' ? 'lightgrey' : 'black',
+              '&:hover': {
+                transform: 'scale(1.1)',
+                zIndex: 10,
+                boxShadow: `3px 3px 10px 5px ${
+                  theme === 'light' ? '#0007' : bootstrapColors.blue
+                }`,
+              },
+            }}
+          >
+            <img
+              alt={photo.name}
+              loading="lazy"
+              src={photo.address}
+              style={{
+                border: `0.5rem solid ${bootstrapColors.blue}`,
+                width: '10rem',
+                height: '10rem',
+                marginTop: '-6rem',
+                borderRadius: '50%',
               }}
             />
-            <SpinningCog
-              size="4em"
+            <SectionHeading text={name.name} variant="h2" />
+            <Typography
               sx={{
-                marginX: '-3px',
-                color: bootstrapColors.red,
+                display: 'block',
+                width: '100%',
+                marginBottom: '0.5rem',
               }}
-              reverse
-            />
-            <SpinningCog
-              size="4em"
-              sx={{
-                marginX: '-3px',
-                color:
-                  theme === 'light'
-                    ? bootstrapColors.orange
-                    : bootstrapColors.yellow,
-              }}
-            />
-          </Box>
-          <SectionHeading text={hero.h1} variant="h1" />
-          {hero.small && (
+              variant="p"
+            >
+              <span>{profession.name}</span>
+              {' · '}
+              <span>{location.name}</span>
+            </Typography>
+            <hr />
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
+                justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '1rem',
+                gap: '2rem',
+                fontSize: '1.5rem',
+                margin: '1rem 0 0.5rem',
               }}
             >
-              <hr
-                style={{
-                  height: '0',
-                  width: '2rem',
-                  borderColor: bootstrapColors.blue,
+              {socials.map((contact, index) => (
+                <span key={index}>
+                  <LinkExternal href={contact.link}>
+                    <Icon fontAwsomeCode={contact.icon} />
+                  </LinkExternal>
+                </span>
+              ))}
+            </Box>
+            <Box justifyContent="center" alignItems="center">
+              {contacts
+                .filter((c) => c.link)
+                .map((contact, index) => (
+                  <span key={index}>
+                    <LinkExternal href={contact.link}>
+                      <Icon fontAwsomeCode={contact.icon} /> {contact.address}
+                    </LinkExternal>
+                  </span>
+                ))}
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              flex: '1',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Box>
+              <SpinningCog
+                size="4em"
+                sx={{ marginX: '-3px', color: bootstrapColors.blue }}
+              />
+              <SpinningCog
+                size="4em"
+                sx={{ marginX: '-3px', color: bootstrapColors.green }}
+                reverse
+              />
+              <SpinningCog
+                size="4em"
+                sx={{
+                  marginX: '-3px',
+                  color:
+                    theme === 'light'
+                      ? bootstrapColors.black
+                      : bootstrapColors.white,
                 }}
               />
-              <Typography
-                sx={{ marginX: '1rem', background: 'inherit' }}
-                variant="body1"
-              >
-                {hero.small}
-              </Typography>
-              <hr
-                style={{
-                  height: '0',
-                  width: '2rem',
-                  borderColor: bootstrapColors.blue,
+              <SpinningCog
+                size="4em"
+                sx={{
+                  marginX: '-3px',
+                  color: bootstrapColors.red,
+                }}
+                reverse
+              />
+              <SpinningCog
+                size="4em"
+                sx={{
+                  marginX: '-3px',
+                  color:
+                    theme === 'light'
+                      ? bootstrapColors.orange
+                      : bootstrapColors.yellow,
                 }}
               />
             </Box>
-          )}
-          {hero.p.map((p, idx) => (
-            <Paragraph key={idx} p={p} />
-          ))}
+            <SectionHeading text={hero.h1} variant="h1" />
+            {hero.small && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginTop: '1rem',
+                }}
+              >
+                <hr
+                  style={{
+                    height: '0',
+                    width: '2rem',
+                    borderColor: bootstrapColors.blue,
+                  }}
+                />
+                <Typography
+                  sx={{ marginX: '1rem', background: 'inherit' }}
+                  variant="body1"
+                >
+                  {hero.small}
+                </Typography>
+                <hr
+                  style={{
+                    height: '0',
+                    width: '2rem',
+                    borderColor: bootstrapColors.blue,
+                  }}
+                />
+              </Box>
+            )}
+            {hero.p.map((p, idx) => (
+              <Paragraph key={idx} p={p} />
+            ))}
+          </Box>
         </Container>
       </Box>
     </Box>

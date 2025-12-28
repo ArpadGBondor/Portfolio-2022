@@ -15,6 +15,10 @@ import {
   FaDesktop,
   FaCogs,
   FaDatabase,
+  FaUserCircle,
+  FaBriefcase,
+  FaMapMarker,
+  FaCamera,
 } from 'react-icons/fa';
 import React from 'react';
 
@@ -57,6 +61,14 @@ const Icon = ({ fontAwsomeCode }) => {
       return <FaDesktop style={iconStyle} />;
     case 'fa fa-database':
       return <FaDatabase style={iconStyle} />;
+    case 'fa fa-user-circle':
+      return <FaUserCircle style={iconStyle} />;
+    case 'fa fa-briefcase':
+      return <FaBriefcase style={iconStyle} />;
+    case 'fa fa-map-marker':
+      return <FaMapMarker style={iconStyle} />;
+    case 'fa fa-camera':
+      return <FaCamera style={iconStyle} />;
     default:
       return <p>Icon not available.</p>;
   }

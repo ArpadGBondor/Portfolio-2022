@@ -4,8 +4,9 @@ import { useTheme } from '@mui/material/styles';
 
 export default function SectionHeading({
   text,
-  variant = 'h3',
+  variant = 'h2',
   justifyContent = 'center',
+  sx = {},
 }) {
   const theme = useTheme();
 
@@ -20,12 +21,13 @@ export default function SectionHeading({
         justifyContent,
         flexWrap: 'wrap',
         gap: '0.25em',
+        ...sx,
       }}
     >
       {words.map((word, index) => {
         const firstChar = word.charAt(0);
         const rest = word.slice(1);
-        const isUppercase = /^[A-Z]$/.test(firstChar);
+        const isUppercase = /^\p{Lu}$/u.test(firstChar);
 
         return (
           <Box key={index} component="span">
