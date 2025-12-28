@@ -75,7 +75,8 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
             container
             spacing={0}
             sx={{
-              backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#111',
+              background:
+                theme.palette.mode === 'light' ? 'lightgrey' : 'black',
               borderColor: theme.palette.primary.main,
               borderWidth: '1px 4px 4px 1px',
               borderStyle: 'solid',
@@ -101,11 +102,21 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
                 sx={{
                   borderRight:
                     idx % 2 === 0
-                      ? `1px solid ${theme.palette.divider}`
+                      ? {
+                          xs: 'none',
+                          sm: `1px solid ${theme.palette.primary.main}`,
+                          md: 'none',
+                        }
                       : 'none',
                   borderBottom:
                     idx < stats.length - 2
-                      ? `1px solid ${theme.palette.divider}`
+                      ? `1px solid ${theme.palette.primary.main}`
+                      : idx < stats.length - 1
+                      ? {
+                          xs: `1px solid ${theme.palette.primary.main}`,
+                          sm: 'none',
+                          md: `1px solid ${theme.palette.primary.main}`,
+                        }
                       : 'none',
                   padding: '1.5rem',
                   display: 'flex',
