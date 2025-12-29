@@ -36,10 +36,11 @@ function TimelineWrapper({ sectionIndex, backgroundImg, children }) {
         <Box
           sx={{
             width: { xs: '100%', md: '50%' },
-            padding: '1rem 2rem',
+            padding:
+              sectionIndex % 2 === 0 ? '1rem 2rem 1rem 0' : '1rem 0 1rem 2rem',
             marginLeft: sectionIndex % 2 === 0 ? '0' : 'auto',
             marginRight: sectionIndex % 2 !== 0 ? '0' : 'auto',
-            marginTop: { xs: '0', md: '-19rem' },
+            marginTop: { xs: '0', md: '-17rem' },
             position: 'relative',
           }}
         >

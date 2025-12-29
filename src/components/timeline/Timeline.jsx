@@ -41,7 +41,7 @@ function Timeline({ content }) {
       <Container
         sx={{
           position: 'relative',
-          paddingTop: { xs: '1', md: '20rem' },
+          paddingTop: { xs: '1', md: '18rem' },
           paddingBottom: '1rem',
         }}
       >

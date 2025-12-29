@@ -11,7 +11,7 @@ function Cards({ cards, gridSize }) {
       container
       alignItems="stretch"
       justifyContent="start"
-      sx={{ marginBottom: '1rem' }}
+      sx={{ marginBottom: '1rem', marginX: '-1rem' }}
     >
       {cards.map((card, idx) => (
         <Grid2

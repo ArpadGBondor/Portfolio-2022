@@ -22,12 +22,12 @@ import {
 } from 'react-icons/fa';
 import React from 'react';
 
-const iconStyle = {
-  fontSize: '2em', // ← 1.5 × parent font-size
-  verticalAlign: 'middle',
-};
-
-const Icon = ({ fontAwsomeCode }) => {
+const Icon = ({ fontAwsomeCode, style = {} }) => {
+  const iconStyle = {
+    fontSize: '2em', // ← 1.5 × parent font-size
+    verticalAlign: 'middle',
+    ...style,
+  };
   switch (fontAwsomeCode) {
     case 'fas fa-phone':
       return <FaPhone style={iconStyle} />;

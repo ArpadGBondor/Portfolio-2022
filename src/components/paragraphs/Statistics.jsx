@@ -12,8 +12,8 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
       container
       spacing={2}
       alignItems="center"
-      justifyContent="space-between"
-      sx={{ marginBottom: '2rem' }}
+      justifyContent="stretch"
+      sx={{ marginY: '1rem' }}
     >
       {/* LEFT SIDE – CONTENT */}
       <Grid2
@@ -28,7 +28,6 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
       >
         <Box
           sx={{
-            padding: '1rem',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-around',
@@ -42,7 +41,7 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
 
       {/* RIGHT SIDE – STATISTICS */}
       <Grid2
-        size={{ xs: 12, md: 6, lg: 4 }}
+        size={{ xs: 12, md: 5, lg: 4 }}
         sx={{
           order: {
             xs: 2,
@@ -53,7 +52,6 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
         <Box
           sx={{
             position: 'relative',
-            padding: { xs: '1rem', md: '2rem' },
           }}
         >
           {/* Optional title */}

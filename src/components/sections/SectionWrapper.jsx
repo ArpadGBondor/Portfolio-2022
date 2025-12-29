@@ -56,6 +56,7 @@ function SectionWrapper({ sectionIndex, backgroundImg, children }) {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
+            padding: '2rem 2rem 3rem',
           }}
         >
           {/* Overlay */}
@@ -71,7 +72,6 @@ function SectionWrapper({ sectionIndex, backgroundImg, children }) {
             sx={{
               position: 'relative',
               zIndex: 1,
-              padding: '1rem',
               color: theme === 'light' ? 'black' : 'lightgrey',
             }}
           >

@@ -33,7 +33,7 @@ function Hero({ hero }) {
           position: 'relative',
           inset: '0',
           textAlign: 'center',
-          padding: { xs: '6rem 2rem 4rem', md: '8rem 4rem 6rem' },
+          padding: { xs: '6rem 2rem 4rem', md: '8rem 2rem 6rem' },
         }}
       >
         <Container
@@ -78,16 +78,17 @@ function Hero({ hero }) {
                 borderRadius: '50%',
               }}
             />
-            <SectionHeading text={name.name} variant="h2" />
+            <SectionHeading text={name.name} variant="h3" />
             <Typography
               sx={{
                 display: 'block',
                 width: '100%',
-                marginBottom: '0.5rem',
+                marginTop: '0.5rem',
+                marginBottom: '1rem',
               }}
               variant="p"
             >
-              <span>{profession.name}</span>
+              <span style={{ fontWeight: '700' }}>{profession.name}</span>
               {' · '}
               <span>{location.name}</span>
             </Typography>
