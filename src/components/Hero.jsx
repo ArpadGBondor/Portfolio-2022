@@ -19,7 +19,6 @@ function Hero({ hero }) {
       sx={{
         background: `url(${hero.img_url}) center/cover no-repeat, #7777`,
         position: 'relative',
-        paddingBottom: '1rem',
       }}
     >
       <Box
