@@ -17,9 +17,10 @@ function Statistics({ left, stats, statsTitle, sectionIndex }) {
     >
       {/* LEFT SIDE – CONTENT */}
       <Grid2
-        size={{ xs: 12, sm: 8, md: 6 }}
+        size={{ xs: 12, sm: 10, md: 6, lg: 7 }}
         sx={{
-          marginX: 'auto',
+          marginRight: { xs: 'auto', md: isReversedDesktop ? '0' : 'auto' },
+          marginLeft: { xs: 'auto', md: isReversedDesktop ? 'auto' : '0' },
           order: {
             xs: 1,
             md: isReversedDesktop ? 2 : 1,

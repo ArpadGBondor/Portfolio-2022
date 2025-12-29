@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+const admin = require('firebase-admin');
 
 let app;
 
@@ -12,11 +12,17 @@ if (!admin.apps.length) {
   app = admin.app();
 }
 
-export const auth = admin.auth();
-export const db = admin.firestore();
-export default app;
+const auth = admin.auth();
+const db = admin.firestore();
 
-export const firebase_collections = {
+const firebase_collections = {
   CONTACT: 'contact',
   PAGE: 'page',
+};
+
+module.exports = {
+  app,
+  auth,
+  db,
+  firebase_collections,
 };
