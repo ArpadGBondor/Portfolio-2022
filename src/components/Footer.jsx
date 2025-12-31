@@ -40,6 +40,7 @@ function Footer() {
         }}
       >
         <Container
+          maxWidth="xl"
           sx={{
             padding: { xs: '2rem', md: '1rem' },
             width: '100%',
