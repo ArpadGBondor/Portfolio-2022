@@ -127,7 +127,7 @@ function Navbar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-            variant="h2"
+            variant="h5"
             noWrap
           >
             <span style={{ color: bootstrapColors.blue }}>G</span>abriel's{' '}
@@ -201,7 +201,7 @@ function Navbar() {
               textDecoration: 'none',
               textAlign: 'center',
             }}
-            variant="h2"
+            variant="h5"
             href="/"
           >
             <div>
