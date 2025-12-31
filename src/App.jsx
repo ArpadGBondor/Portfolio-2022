@@ -31,7 +31,7 @@ function App() {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'stretch',
             alignItems: 'center',
             minHeight: '100vh',
             width: '100%',
@@ -41,7 +41,17 @@ function App() {
           }}
         >
           {!contacts || !socials ? (
-            <Spinner />
+            <Box
+              sx={{
+                flex: '1',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <Spinner />
+            </Box>
           ) : (
             <>
               <AppRouter />
