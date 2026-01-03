@@ -56,7 +56,7 @@ function SectionWrapper({ sectionIndex, backgroundImg, children }) {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
-            padding: '2rem 2rem 3rem',
+            padding: { xs: '2rem 1rem 3rem', md: '2rem 2rem 3rem' },
           }}
         >
           {/* Overlay */}

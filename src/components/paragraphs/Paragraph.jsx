@@ -8,6 +8,7 @@ import SectionHeading from '../sections/SectionHeading';
 import Cards from './Cards';
 import Statistics from './Statistics';
 import Icon from '../Icon';
+import Stack from './Stack';
 
 function Paragraph({ p, sectionIndex }) {
   const navigate = useNavigate();
@@ -63,6 +64,8 @@ function Paragraph({ p, sectionIndex }) {
       return (
         <Cards cards={p.cards} gridSize={{ xs: 12, sm: 6, md: 4, lg: 3 }} />
       );
+    case 'stack':
+      return <Stack p={p} />;
     case 'badges':
       return (
         <Box
