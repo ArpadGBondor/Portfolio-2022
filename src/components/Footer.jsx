@@ -85,7 +85,7 @@ function Footer() {
               gap: { xs: '1rem', sm: '0' },
             }}
           >
-            <Typography>Copyright © 2022-2025 Árpád Gábor Bondor</Typography>
+            <Typography>Copyright © 2022-2026 Árpád Gábor Bondor</Typography>
             <Box
               sx={{
                 flex: { xs: 'unset', sm: 2 },
