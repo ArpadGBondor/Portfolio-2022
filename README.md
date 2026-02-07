@@ -2,21 +2,30 @@
 
 ## Deployed:
 
--   Deployed [on Netlify](https://gabriel-bondor.netlify.app/)
+- Deployed [on Netlify](https://gabriel-bondor.netlify.app/)
 
-## Description:
+## Description
 
-I'd like to create a new single page application portfolio project, using React.js and Material UI for the frontend, and serverless functions for the backend.
+This project is a single-page application portfolio website built with React.js.
 
-## Goals:
+It was originally created in 2022, when Heroku stopped offering free hosting for Express.js projects and my previous portfolio website went offline. At the time, the main goal was to quickly rebuild and maintain an online presence.
 
--   CV
-    -   Can switch between Full and IT only
-    -   Printable (looks good on A4)
--   Introduction
--   Projects on Github
-    -   categorised
-    -   description
-    -   screenshots
--   Mail
--   Switch between dark/light theme
+Material UI (MUI) was chosen not only for its popularity, but also with the expectation that it would make development faster and easier — following the well-known joke that "it will be easy." The idea was to use MUI to spin up a functional and presentable portfolio with minimal effort.
+
+## Project Evolution
+
+In 2025, the project was refurbished and significantly improved:
+
+- The overall design was modernized and refined
+
+- More complex and interactive components were added
+
+- The backend was migrated from MongoDB Atlas to Google Firestore
+
+- Firestore security rules were configured to allow safe read access directly from the frontend using the Firebase npm package
+
+- Serverless functions were retained as a fallback mechanism
+
+- If data is missing in Firestore, backend functions fetch it from the legacy MongoDB database and persist it in Firestore
+
+This hybrid approach ensured a seamless migration to Firestore while maintaining data safety and continuity. By accessing Firestore directly from the frontend whenever possible, the website’s performance was improved significantly, reducing latency and simplifying the architecture.
