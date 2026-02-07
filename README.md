@@ -10,7 +10,7 @@ This project is a single-page application portfolio website built with React.js.
 
 It was originally created in 2022, when Heroku stopped offering free hosting for Express.js projects and my previous portfolio website went offline. At the time, the main goal was to quickly rebuild and maintain an online presence.
 
-Material UI (MUI) was chosen not only for its popularity, but also with the expectation that it would make development faster and easier — following the well-known joke that "it will be easy." The idea was to use MUI to spin up a functional and presentable portfolio with minimal effort.
+Material UI (MUI) was chosen not only for its popularity, but also with the expectation that it would make development faster and easier — following the well-known joke that "“We do this not because it is easy, but because we thought it would be easy." The idea was to use MUI to spin up a functional and presentable portfolio with minimal effort.
 
 ## Project Evolution
 
