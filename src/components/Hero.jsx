@@ -134,17 +134,23 @@ function Hero({ hero }) {
           >
             <Box>
               <SpinningCog
-                size="4em"
-                sx={{ marginX: '-3px', color: bootstrapColors.blue }}
+                sx={{
+                  fontSize: { xs: '2.5rem', md: '4rem' },
+                  marginX: '-3px',
+                  color: bootstrapColors.blue,
+                }}
               />
               <SpinningCog
-                size="4em"
-                sx={{ marginX: '-3px', color: bootstrapColors.green }}
+                sx={{
+                  fontSize: { xs: '2.5rem', md: '4rem' },
+                  marginX: '-3px',
+                  color: bootstrapColors.green,
+                }}
                 reverse
               />
               <SpinningCog
-                size="4em"
                 sx={{
+                  fontSize: { xs: '2.5rem', md: '4rem' },
                   marginX: '-3px',
                   color:
                     theme === 'light'
@@ -153,16 +159,16 @@ function Hero({ hero }) {
                 }}
               />
               <SpinningCog
-                size="4em"
                 sx={{
+                  fontSize: { xs: '2.5rem', md: '4rem' },
                   marginX: '-3px',
                   color: bootstrapColors.red,
                 }}
                 reverse
               />
               <SpinningCog
-                size="4em"
                 sx={{
+                  fontSize: { xs: '2.5rem', md: '4rem' },
                   marginX: '-3px',
                   color:
                     theme === 'light'
